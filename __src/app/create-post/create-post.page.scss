@@ -1,0 +1,41 @@
+ion-header {
+	.form {
+		ion-list {
+			padding: 0 !important;
+
+			ion-item {
+				padding-bottom: 0 !important;
+			}
+		}
+
+	}
+}
+
+ion-footer {
+	.post_option { 
+		padding: 0 12px;
+		.icon_box {
+			position: relative;
+			background: var(--bg-color);
+			border-radius: 6px;
+			margin: 0 7px;
+			width: 52px;
+			min-width: 52px;
+			height: 52px;
+			text-align: center; 
+			margin-bottom: 16px;
+			position: relative;
+			
+
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+				width: 25px; 
+			}
+		}
+	}
+}

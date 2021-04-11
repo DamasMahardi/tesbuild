@@ -1,0 +1,535 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>
+			<img src="assets/images/header_logo.png">
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color" fullscreen>
+	<ion-list lines="none">
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/5.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Emili Williamson </span>
+							<span class="end  ion-text-end" [ngClass]="saveIcon1 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon1()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						Had a wondreful fuction at Jackvilla.
+					</p>
+				</div>
+
+				<div class="post_img center_img">
+					<img src="assets/images/post_2.png" class="crop_img">
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+						
+						<span class="ion-text-end favorite" [ngClass]="heartIcon1 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon1()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/bella_2.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Caroline Williamson </span>
+							<span class="end ion-text-end" [ngClass]="saveIcon2 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon2()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10 mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						It dose not matter how sloely you go as long as you do not stop. Confucius.<br>So Keep Gooing guys.
+					</p>
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+							<span class="ion-text-end favorite" [ngClass]="heartIcon2 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon2()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/bernadette_1.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Teesha Williamson</span>
+							<span class="end  ion-text-end" [ngClass]="saveIcon3 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon3()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						Had a wondreful fuction at Jackvilla.
+					</p>
+				</div>
+
+				<div class="post_img center_img">
+					<img src="assets/images/post_1.png" class="crop_img">
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+							<span class="ion-text-end favorite" [ngClass]="heartIcon3 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon3()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/4.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Andrew Williamson </span>
+						<span class="end  ion-text-end" [ngClass]="saveIcon4 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon4()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10 mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						Need a help with Room on Rent in Hemiltone area. Kindly Message or comment if anyone help me with this.
+					</p>
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+							<span class="ion-text-end favorite" [ngClass]="heartIcon4 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon4()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/5.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Emili Williamson </span>
+						<span class="end  ion-text-end" [ngClass]="saveIcon5 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon5()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						Had a wondreful fuction at Jackvilla.
+					</p>
+				</div>
+
+				<div class="post_img center_img">
+					<img src="assets/images/post_2.png" class="crop_img">
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+							<span class="ion-text-end favorite" [ngClass]="heartIcon5 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon5()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/bella_2.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Caroline Williamson </span>
+							<span class="end  ion-text-end" [ngClass]="saveIcon6 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon6()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10 mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						It dose not matter how sloely you go as long as you do not stop. Confucius.<br>So Keep Gooing guys.
+					</p>
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+							<span class="ion-text-end favorite" [ngClass]="heartIcon6 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon6()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/bernadette_1.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Teesha Williamson</span>
+							<span class="end  ion-text-end" [ngClass]="saveIcon7 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon7()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						Had a wondreful fuction at Jackvilla.
+					</p>
+				</div>
+
+				<div class="post_img center_img">
+					<img src="assets/images/post_1.png" class="crop_img">
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+							<span class="ion-text-end favorite" [ngClass]="heartIcon7 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon7()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/4.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Andrew Williamson </span>
+						<span class="end  ion-text-end" [ngClass]="saveIcon8 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon8()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10 mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						Need a help with Room on Rent in Hemiltone area. Kindly Message or comment if anyone help me with this.
+					</p>
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+							<span class="ion-text-end favorite" [ngClass]="heartIcon8 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon8()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/5.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Emili Williamson </span>
+							<span class="end  ion-text-end" [ngClass]="saveIcon9 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon9()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						Had a wondreful fuction at Jackvilla.
+					</p>
+				</div>
+
+				<div class="post_img center_img">
+					<img src="assets/images/post_2.png" class="crop_img">
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+							<span class="ion-text-end favorite" [ngClass]="heartIcon9 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon9()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/bella_2.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Caroline Williamson </span>
+						<span class="end  ion-text-end" [ngClass]="saveIcon10 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon10()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10 mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						It dose not matter how sloely you go as long as you do not stop. Confucius.<br>So Keep Gooing guys.
+					</p>
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+							<span class="ion-text-end favorite" [ngClass]="heartIcon10 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon10()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/bernadette_1.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Teesha Williamson</span>
+						<span class="end  ion-text-end" [ngClass]="saveIcon11 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon11()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						Had a wondreful fuction at Jackvilla.
+					</p>
+				</div>
+
+				<div class="post_img center_img">
+					<img src="assets/images/post_1.png" class="crop_img">
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+							<span class="ion-text-end favorite" [ngClass]="heartIcon11 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon11()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item_container">
+				<div class="post_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/4.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2 class="d-flex">
+							<span>Andrew Williamson </span>
+							<span class="end  ion-text-end" [ngClass]="saveIcon12 ? 'icon_box active' : 'icon_box'" (click)="toggleSaveIcon12()">
+								<img src="assets/images/ic_save.png" class="">
+								<img src="assets/images/ic_saved.png" class="">
+							</span>
+						</h2>
+						<h3>10 mins ago</h3>
+					</div>
+				</div>
+
+				<div class="post_text">
+					<p>
+						Need a help with Room on Rent in Hemiltone area. Kindly Message or comment if anyone help me with this.
+					</p>
+				</div>
+				<div class="item_bottom_side d-flex">
+					<h4>125 Liked & 25 Commented </h4>
+					<h5 class="end d-flex">
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_share.png">
+						</span>
+						<span class="icon_box ion-text-end">
+							<img src="assets/images/ic_comment.png">
+						</span>
+							<span class="ion-text-end favorite" [ngClass]="heartIcon12 ? 'icon_box active' : 'icon_box'" (click)="toggleHeartIcon12()">
+							<img src="assets/images/ic_heart.png">
+							<img src="assets/images/ic_heart_active.png">
+						</span>
+					</h5>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-content>
+<ion-footer no-border class="d-flex">
+	<ion-icon class="zmdi zmdi-plus end" (click)="create_post()"></ion-icon>
+</ion-footer>

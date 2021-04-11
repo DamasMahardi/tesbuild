@@ -1,0 +1,430 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>{{'notification' | translate}} </ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color">
+	<ion-list lines="none">
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Jessica Williamson Liked your post.</h2>
+					<h3>2 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Jesica's {{'profile' | translate}}</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Lissa Williamson Liked on your post.</h2>
+					<h3>10 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Lissa's {{'profile' | translate}}</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Peter Williamson wants to add you sa a sister in her family</h2>
+					<h3>2 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Peter's {{'profile' | translate}}</h4>
+					</ion-col>
+
+					<ion-col class="ion-text-end">
+						<h6>{{'reject' | translate}}</h6>
+					</ion-col>
+
+
+					<ion-col class="ion-text-end">
+						<h5>{{'accept' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>New Event Creatated.</h2>
+					<h3>10 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6">
+						<h4>Annual Get Together 2020...</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+		<ion-item (click)="blogs()">
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>New Blog has been postes</h2>
+					<h3>10 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6">
+						<h4>Read which 10 Morning Routine</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="blogs()">
+						<h5>{{'view_blog' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Emili Williamson Liked your post.</h2>
+					<h3>2 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Emili's {{'profile' | translate}}</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Jessica Williamson Liked your post.</h2>
+					<h3>2 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Jesica's {{'profile' | translate}}</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Lissa Williamson Liked on your post.</h2>
+					<h3>10 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Lissa's {{'profile' | translate}}</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Peter Williamson wants to add you sa a sister in her family</h2>
+					<h3>2 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Peter's {{'profile' | translate}}</h4>
+					</ion-col>
+
+					<ion-col class="ion-text-end">
+						<h6>{{'reject' | translate}}</h6>
+					</ion-col>
+
+
+					<ion-col class="ion-text-end">
+						<h5>{{'accept' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>New Event Creatated.</h2>
+					<h3>10 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6">
+						<h4>Annual Get Together 2020...</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+		<ion-item (click)="blogs()">
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>New Blog has been postes</h2>
+					<h3>10 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6">
+						<h4>Read which 10 Morning Routine</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="blogs()">
+						<h5>{{'view_blog' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Emili Williamson Liked your post.</h2>
+					<h3>2 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Emili's {{'profile' | translate}}</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Jessica Williamson Liked your post.</h2>
+					<h3>2 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Jesica's {{'profile' | translate}}</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Lissa Williamson Liked on your post.</h2>
+					<h3>10 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Lissa's {{'profile' | translate}}</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Peter Williamson wants to add you sa a sister in her family</h2>
+					<h3>2 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Peter's {{'profile' | translate}}</h4>
+					</ion-col>
+
+					<ion-col class="ion-text-end">
+						<h6>{{'reject' | translate}}</h6>
+					</ion-col>
+
+
+					<ion-col class="ion-text-end">
+						<h5>{{'accept' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>New Event Creatated.</h2>
+					<h3>10 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6">
+						<h4>Annual Get Together 2020...</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+		<ion-item (click)="blogs()">
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>New Blog has been postes</h2>
+					<h3>10 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6">
+						<h4>Read which 10 Morning Routine</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="blogs()">
+						<h5>{{'view_blog' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Emili Williamson Liked your post.</h2>
+					<h3>2 Min ago</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6" (click)="user_profile()">
+						<h4>View Emili's {{'profile' | translate}}</h4>
+					</ion-col>
+					<!--
+					<ion-col size="3">
+						<h4>11:00 am</h4>
+					</ion-col>
+-->
+
+					<ion-col class="ion-text-end" (click)="my_profile()">
+						<h5>{{'view_post' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+	</ion-list>
+
+</ion-content>

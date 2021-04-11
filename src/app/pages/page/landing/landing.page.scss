@@ -1,0 +1,24 @@
+.fullheight {
+    height: 100%;
+    
+    &.xc {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ion-grid {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            // padding-top: 20%;
+            img {
+                width: 250px;
+                margin: 0 auto;
+                display: block;
+            }
+            b {
+                color: #FDB915;
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+<ion-header class="bg_color">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			<span class="ion-float-end" (click)="setViewType('active')" style="font-size: 1rem;">
+				<ion-icon name="globe-outline"></ion-icon> {{language | uppercase}}
+            </span>
+		</ion-title>
+	</ion-toolbar>
+	<div class="banner" (click)="setViewType(null)">
+		<ion-row>
+			<ion-col size="12">
+				<div class="banner_img center_img">
+					<img [src]="photo || 'assets/images/user.png'">
+				</div>
+
+				<div style="position: relative; text-align: center;">
+					<h4>{{employee.fullName}}</h4>
+					<p>{{ employee.jobPositionName }}, {{ employee.jobTitleName }}</p>
+				</div>
+			</ion-col>
+		</ion-row>
+	</div>
+
+	<div [ngClass]="viewType == 'active' ? 'option_container active':'option_container'">
+		<div class="option" *ngIf="language === 'id'" (click)="languageConfirm('en')">
+			<ion-row>
+				<ion-col size="3">
+					<img src="assets/en.svg" style="width: 50px;" alt="">
+				</ion-col>
+				<ion-col size="9">
+					<h2> {{'en' | translate}}</h2>
+				</ion-col>
+			</ion-row>
+		</div>
+		<div class="option" *ngIf="language !== 'id'" (click)="languageConfirm('id')">
+			<ion-row>
+				<ion-col size="3">
+					<img src="assets/id.svg" style="width: 40px;" alt="">
+				</ion-col>
+				<ion-col size="9">
+					<h2> {{'id' | translate}}</h2>
+				</ion-col>
+			</ion-row>
+		</div>
+    </div>
+</ion-header>
+<ion-content>
+	<div class="container">
+		<div>
+			<h2 style="text-align: center;">{{employee.companyName}}</h2>
+
+			<h5>{{'contact' | translate}}</h5>
+			<h6 (click)="mailTo(employee.companyEmail)">
+				<ion-icon name="mail" color="primary"></ion-icon> <span>{{employee.companyEmail}}</span>
+			</h6>
+			<h6 style="position: relative; top: -10px;" (click)="call(employee.companyPhone)">
+				<ion-icon name="call" color="primary"></ion-icon> <span>{{employee.companyPhone}}</span>
+			</h6>
+			<h6 style="position: relative; top: -22px;" *ngIf="employee.companyWebsite"
+				(click)="openUrl(employee.companyWebsite)">
+				<ion-icon name="globe" color="primary"></ion-icon> <span>{{employee.companyWebsite}}</span>
+			</h6>
+
+			<div style="padding-bottom: 5px;">
+				<h5>{{'address' | translate}}</h5>
+				<p>
+					{{employee.companyAddress}}
+				</p>
+			</div>
+		</div>
+
+		<ion-button size="large" class="btn block" (click)="goProfile()">
+			{{'personal_information' | translate}}
+		</ion-button>
+		<!-- <ion-button size="large" class="btn block" style="position: relative; top: 5px;" (click)="newRequest()">
+			{{'request_change_data' | translate}}
+		</ion-button> -->
+		<ion-button size="large" class="btn block signout" style="position: relative; top: 10px;" (click)="logout()">
+			{{'sign_out' | translate}}
+		</ion-button>
+	</div>
+</ion-content>

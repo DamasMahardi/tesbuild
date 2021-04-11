@@ -1,0 +1,96 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{'select_relation_with' | translate}}</ion-title>
+	</ion-toolbar>
+	<ion-list lines="none">
+		<ion-item>
+			<div class="item_container d-flex">
+				<div class="img_box center_img">
+					<img src="assets/images/4.png" class="crop_img">
+				</div>
+				<div class="text_box">
+					<h2>Andrew Williamson</h2>
+					<h3>Hemilton, New York</h3>
+					<div class="other_details d-flex">
+						<p class="d-flex">
+							30 Years <span></span> Doctor
+						</p>
+						<div class="icon_container">
+							<div class="icon_box">
+								<div class="icon"><img src="assets/images/ic_call.png"></div>
+								<div class="icon"><img src="assets/images/ic_chat.png"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-header>
+
+<ion-content>
+	<ion-list lines="none">
+		<div class="container">
+
+			<ion-radio-group>
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Father</ion-label>
+					<ion-radio slot="start" value="Father"></ion-radio>
+				</ion-item>
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Mother</ion-label>
+					<ion-radio slot="start" value="Mother" ></ion-radio>
+				</ion-item>
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Sister</ion-label>
+					<ion-radio slot="start" value="Sister" ></ion-radio>
+				</ion-item>
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Brother</ion-label>
+					<ion-radio slot="start" value="Brother" checked></ion-radio>
+				</ion-item>
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Uncle</ion-label>
+					<ion-radio slot="start" value="Uncle" ></ion-radio>
+				</ion-item>
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Aunty</ion-label>
+					<ion-radio slot="start" value="Aunty" ></ion-radio>
+				</ion-item>	
+				
+				
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Father</ion-label>
+					<ion-radio slot="start" value="Father1"></ion-radio>
+				</ion-item>
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Mother</ion-label>
+					<ion-radio slot="start" value="Mother1" ></ion-radio>
+				</ion-item>
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Sister</ion-label>
+					<ion-radio slot="start" value="Sister1" ></ion-radio>
+				</ion-item>
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Brother</ion-label>
+					<ion-radio slot="start" value="Brother1"></ion-radio>
+				</ion-item>
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Uncle</ion-label>
+					<ion-radio slot="start" value="Uncle" ></ion-radio>
+				</ion-item>
+				<ion-item lines="none" class="item-radio">
+					<ion-label>Aunty</ion-label>
+					<ion-radio slot="start" value="Aunty1" ></ion-radio>
+				</ion-item>
+			</ion-radio-group>
+		</div>
+	</ion-list>
+</ion-content>
+
+<ion-footer no-border>
+	<ion-button size="large" class="btn" (click)="add_member()">{{'add_family_member' | translate}}</ion-button>
+</ion-footer>

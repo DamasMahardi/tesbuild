@@ -1,0 +1,85 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title> {{'search_donor' | translate}}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="form">
+		<ion-list lines="none">
+			<ion-item lines="none">
+				<ion-label position="stacked">{{'select_city' | translate}}</ion-label>
+				<ion-select placeholder="{{'select_city_where_need_blood' | translate}}" interface="action-sheet">
+					<ion-select-option value="Hempstead"> Hempstead</ion-select-option>
+					<ion-select-option value="Brookhaven"> Brookhaven</ion-select-option>
+					<ion-select-option value="Latvia"> Latvia</ion-select-option>
+					<ion-select-option value="North Hempstead"> North Hempstead</ion-select-option>
+					<ion-select-option value="Rochester"> Rochester</ion-select-option>
+				</ion-select>
+			</ion-item>
+
+			<div class="select_blood_group">
+				<ion-radio-group>
+					<h2>{{'select_blood_group' | translate}}</h2>
+					<ion-row>
+						<ion-col size="4">
+							<ion-item lines="none">
+								<ion-label>O-</ion-label>
+								<ion-radio slot="start" value="1"></ion-radio>
+							</ion-item>
+						</ion-col>
+						<ion-col size="4">
+							<ion-item>
+								<ion-label>O+</ion-label>
+								<ion-radio slot="start" value="2"></ion-radio>
+							</ion-item>
+						</ion-col>
+						<ion-col size="4">
+							<ion-item>
+								<ion-label>B-</ion-label>
+								<ion-radio slot="start" value="3"></ion-radio>
+							</ion-item>
+						</ion-col>
+						<ion-col size="4">
+							<ion-item>
+								<ion-label>B+</ion-label>
+								<ion-radio slot="start" value="4"></ion-radio>
+							</ion-item>
+						</ion-col>
+						<ion-col size="4">
+							<ion-item>
+								<ion-label>A-</ion-label>
+								<ion-radio slot="start" value="5"></ion-radio>
+							</ion-item>
+						</ion-col>
+						<ion-col size="4">
+							<ion-item>
+								<ion-label>A+</ion-label>
+								<ion-radio slot="start" value="6" checked></ion-radio>
+							</ion-item>
+						</ion-col>
+							<ion-col size="4">
+							<ion-item>
+								<ion-label>AB-</ion-label>
+								<ion-radio slot="start" value="7"></ion-radio>
+							</ion-item>
+						</ion-col>
+							<ion-col size="4">
+							<ion-item>
+								<ion-label>AB+</ion-label>
+								<ion-radio slot="start" value="8"></ion-radio>
+							</ion-item>
+						</ion-col>
+					</ion-row>
+				</ion-radio-group>
+			</div>
+		</ion-list>
+	</div>
+</ion-content>
+
+<ion-footer no-border>
+	<ion-button size="large" class="btn" (click)="blood_doners()">{{'search_donor' | translate}}</ion-button>
+</ion-footer>

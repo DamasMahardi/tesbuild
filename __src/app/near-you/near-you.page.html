@@ -1,0 +1,174 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{'near_you' | translate}}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+	<div class="map_view center_img">
+		<img src="assets/images/map.png" class="crop_img">
+	</div>
+	<div class="profile" style="top:20%; left:64%;" (click)="toggleFab1()" [ngClass]="fabAction1 ? 'active' : ''">
+		<div class="img_box center_img">
+			<img src="assets/images/4.png" class="crop_img">
+		</div>
+	</div>
+	<div class="profile" style="top:30%; left:14%;" (click)="toggleFab2()" [ngClass]="fabAction2 ? 'active' : ''">
+		<div class="img_box center_img">
+			<img src="assets/images/5.png" class="crop_img">
+		</div>
+	</div>
+	<div class="profile" style="top:51%; left:15%;" (click)="toggleFab3()" [ngClass]="fabAction3 ? 'active' : ''">
+		<div class="img_box center_img">
+			<img src="assets/images/8.png" class="crop_img">
+		</div>
+	</div>
+	<div class="profile" style="top:50%; left:74%;" (click)="toggleFab4()" [ngClass]="fabAction4 ? 'active' : ''">
+		<div class="img_box center_img">
+			<img src="assets/images/bella_2.png" class="crop_img">
+		</div>
+	</div>
+	<div class="profile" style="top:69%; left:60%;" (click)="toggleFab5()" [ngClass]="fabAction5 ? 'active' : ''">
+		<div class="img_box center_img">
+			<img src="assets/images/1.png" class="crop_img">
+		</div>
+	</div>
+
+	<div class="my_location" style="top:60%; left: 50%"></div>
+</ion-content>
+
+<ion-footer no-border [ngClass]="fabAction1 ? 'active' : ''">
+	<ion-list lines="none">
+		<ion-item (click)="GotToUserProfile()">
+			<div class="item_container d-flex">
+				<div class="img_box center_img">
+					<img src="assets/images/4.png" class="crop_img">
+				</div>
+				<div class="text_box">
+					<h2>Andrew Williamson</h2>
+					<h3>Hemilton, New York</h3>
+					<div class="other_details d-flex">
+						<p class="d-flex">
+							30 Years <span></span> Doctor
+						</p>
+						<div class="icon_container">
+							<div class="icon_box">
+								<div class="icon"><img src="assets/images/ic_call.png"></div>
+								<div class="icon"><img src="assets/images/ic_chat.png"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-footer>
+
+
+<ion-footer no-border [ngClass]="fabAction2 ? 'active' : ''">
+	<ion-list lines="none">
+		<ion-item (click)="GotToUserProfile()">
+			<div class="item_container d-flex">
+				<div class="img_box center_img">
+					<img src="assets/images/4.png" class="crop_img">
+				</div>
+				<div class="text_box">
+					<h2>Andrew Williamson</h2>
+					<h3>Hemilton, New York</h3>
+					<div class="other_details d-flex">
+						<p class="d-flex">
+							30 Years <span></span> Doctor
+						</p>
+						<div class="icon_container">
+							<div class="icon_box">
+								<div class="icon"><img src="assets/images/ic_call.png"></div>
+								<div class="icon"><img src="assets/images/ic_chat.png"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-footer>
+<ion-footer no-border [ngClass]="fabAction3 ? 'active' : ''">
+	<ion-list lines="none">
+		<ion-item (click)="GotToUserProfile()">
+			<div class="item_container d-flex">
+				<div class="img_box center_img">
+					<img src="assets/images/4.png" class="crop_img">
+				</div>
+				<div class="text_box">
+					<h2>Andrew Williamson</h2>
+					<h3>Hemilton, New York</h3>
+					<div class="other_details d-flex">
+						<p class="d-flex">
+							30 Years <span></span> Doctor
+						</p>
+						<div class="icon_container">
+							<div class="icon_box">
+								<div class="icon"><img src="assets/images/ic_call.png"></div>
+								<div class="icon"><img src="assets/images/ic_chat.png"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-footer>
+<ion-footer no-border [ngClass]="fabAction4 ? 'active' : ''">
+	<ion-list lines="none">
+		<ion-item (click)="GotToUserProfile()">
+			<div class="item_container d-flex">
+				<div class="img_box center_img">
+					<img src="assets/images/4.png" class="crop_img">
+				</div>
+				<div class="text_box">
+					<h2>Andrew Williamson</h2>
+					<h3>Hemilton, New York</h3>
+					<div class="other_details d-flex">
+						<p class="d-flex">
+							30 Years <span></span> Doctor
+						</p>
+						<div class="icon_container">
+							<div class="icon_box">
+								<div class="icon"><img src="assets/images/ic_call.png"></div>
+								<div class="icon"><img src="assets/images/ic_chat.png"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-footer>
+<ion-footer no-border [ngClass]="fabAction5 ? 'active' : ''">
+	<ion-list lines="none">
+		<ion-item (click)="GotToUserProfile()">
+			<div class="item_container d-flex">
+				<div class="img_box center_img">
+					<img src="assets/images/4.png" class="crop_img">
+				</div>
+				<div class="text_box">
+					<h2>Andrew Williamson</h2>
+					<h3>Hemilton, New York</h3>
+					<div class="other_details d-flex">
+						<p class="d-flex">
+							30 Years <span></span> Doctor
+						</p>
+						<div class="icon_container">
+							<div class="icon_box">
+								<div class="icon"><img src="assets/images/ic_call.png"></div>
+								<div class="icon"><img src="assets/images/ic_chat.png"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-footer>

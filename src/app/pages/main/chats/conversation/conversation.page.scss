@@ -1,0 +1,138 @@
+ion-header {
+	box-shadow: 0 -8px 10px 10px rgba(0, 0, 0, 0.1);
+
+	ion-toolbar ion-title {
+		.profile_box {
+			padding: 10px 0;
+
+			.img_box {
+				min-width: 50px;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+			}
+
+			h2 {
+				margin: 0;
+				font-size: 1.2rem;
+				letter-spacing: 0;
+				font-weight: 600;
+				padding: 0 19px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+		}
+
+	}
+}
+
+
+.chat_container {
+	padding: 15px 15px;
+	flex-wrap: wrap;
+
+	.chat_box {
+		width: auto !important;
+		margin-bottom: 20px;
+		min-width: 70%;
+		align-items: flex-start;
+
+
+		.chat {
+			min-width: 90px;
+			border-radius: 8px;
+			max-width: 100%;
+			box-shadow: 0 19px 14px -8px rgba(0, 0, 0, 0.1);
+
+			h2 {
+				margin: 0;
+				font-size: 1rem;
+				color: var(--text-black);
+				line-height: 18px;
+				padding-bottom: 8px;
+			}
+		}
+
+		p {
+			margin: 0;
+			font-size: .8rem;
+			font-weight: 400;
+			color: var(--text-dark);
+		}
+
+		&.received {
+			.chat {
+				background: var(--white);
+				padding: 16px 45px 15px 14px;
+			}
+		}
+
+		&.send {
+			margin-left: auto;
+			margin-right: 0;
+
+			.chat {
+				background: var(--primary);
+				padding: 16px 14px 15px 45px;
+				margin-left: auto;
+				margin-right: 0;
+
+
+				h2 {
+					text-align: right;
+
+				}
+
+				p {
+					text-align: right;
+				}
+			}
+		}
+	}
+}
+
+
+ion-footer {
+	background: var(--white);
+	box-shadow: 0 6px 10px 10px rgba(0, 0, 0, 0.1);
+
+	.form {
+		margin: 0;
+		width: 100%;
+		padding: 0;
+
+		ion-list {
+			padding: 0 !important;
+
+			ion-item {
+				border: none !important;
+				background: none;
+				margin: 0;
+				align-items: center;
+				border: 0 !important;
+				padding: 14px 17px !important;
+				--min-height: unset !important;
+font-weight: 500 !important;
+				ion-input {
+					font-size: .95rem !important;
+					--placeholder-color: var(--text-dark) !important;
+
+				}
+
+			}
+
+			.send_btn {
+				padding: 0 17px;
+				min-width: 30px;
+				position: relative;
+				top: 3px;
+
+				img {
+					width: 25px;
+				}
+
+			}
+		}
+	}
+}

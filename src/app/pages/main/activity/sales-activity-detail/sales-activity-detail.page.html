@@ -1,0 +1,44 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{'Sales Activity Detail' | translate}} </ion-title>
+	  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<form [formGroup]="form">
+		<div class="form">
+			<ion-list lines="none">
+				<!-- <ion-item lines="none">
+					<ion-label position="stacked">{{'activity_no' | translate}}</ion-label>
+					<ion-input formControlName="no"></ion-input>
+				</ion-item> -->
+	
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'activity_title' | translate}}</ion-label>
+					<ion-input type="text" formControlName="title"></ion-input>
+				</ion-item>
+	
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'activity_description' | translate}}</ion-label>
+					<ion-input type="text" formControlName="description"></ion-input>
+				</ion-item>
+
+				<ion-item lines="none" class="m-b-none">
+					<ion-label position="stacked">{{'activity_customer' | translate}}</ion-label>
+					<ion-input type="text" formControlName="customerId"></ion-input>					
+				</ion-item>	
+				<div class="ion-padding-horizontal">
+					<ion-button expand="block" fill="outline" (click)="selectCustomer()">{{'activity_select_customer' | translate}}</ion-button>    
+				</div>				
+			</ion-list>			
+		</div>
+	</form>
+
+</ion-content>
+
+<ion-footer class="ion-no-border ion-padding">
+	<ion-button size="large" class="btn" [disabled]="!form.valid" (click)="create()">Create</ion-button>
+</ion-footer>

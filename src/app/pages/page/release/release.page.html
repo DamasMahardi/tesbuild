@@ -1,0 +1,41 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{'change_log' | translate}} </ion-title>
+	</ion-toolbar>	
+</ion-header>
+
+<ion-content class="bg_color">
+	<ion-list lines="none">
+		<ion-item *ngFor="let rel of releaseList">
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Changeset,
+					</h2>
+					<h3 *ngFor="let note of rel.note">{{note}}</h3>
+					<h2>Roadmap,
+					</h2>
+					<h3 *ngFor="let roadmap of rel.roadmap">{{roadmap}}</h3>
+					<h2>Uservoice,
+					</h2>
+					<h3 *ngFor="let userVoice of rel.userVoice">{{userVoice}}</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6">
+						<h4>{{rel.date| date: 'MMM d, y' }}</h4>
+					</ion-col>
+
+					<!-- <ion-col class="ion-text-end" (click)="approve(false)">
+						<h6>{{'reject' | translate}}</h6>
+					</ion-col> -->
+
+					<ion-col class="ion-text-end">
+						<h5>{{rel.version}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-content>

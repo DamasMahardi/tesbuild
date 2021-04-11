@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Course Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <img [src]="details?.course.thumb">
+    <h2>{{details?.course.name}}</h2>
+    <p>{{details?.course.description}}</p>
+  </div>
+
+  <ion-list lines="none">
+    <ion-item *ngFor="let detail of courseDetailList">
+      <div class="item_container">
+        <ion-row>
+          <ion-col>
+            <h4>Chapter {{detail?.courseDetail.chapter}}</h4>
+            <h4>{{detail?.courseDetail.name}}</h4>
+          </ion-col>
+        </ion-row>
+        <iframe [width]="width" height="300px" class="e2e-iframe-trusted-src" [src]="detail.video"></iframe>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

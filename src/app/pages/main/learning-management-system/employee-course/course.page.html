@@ -1,0 +1,34 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Course</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color">
+	<ion-list lines="none">
+		<ion-item *ngFor="let item of courseList">
+			<div class="item_container" (click)="detail(item)">
+				<!-- <div class="notification_details">
+					<h2>My Leave request "{{ item.employeeLeave.description }}"
+					</h2>
+					<h2>Leave Type "{{localization['Enum:LeaveType:'+item.employeeLeave.leaveType]}}"</h2>
+					<h2 *ngFor="let detail of item.employeeLeaveDetails"><ion-icon name="add"></ion-icon> {{ detail.dateTime | date:'dd.MM.yyyy'}}</h2>
+					<h3></h3>
+				</div> -->
+				<ion-row>
+					<ion-col size="4">
+						<img [src]="item?.course.thumb" alt="" width="100" style="border-radius: 10px;">
+					</ion-col>
+					<ion-col size="8">
+						<h4>{{ item?.course.name }}</h4>
+						<h3>{{ item?.course.description }}</h3>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+	</ion-list>
+
+</ion-content>

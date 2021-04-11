@@ -1,0 +1,74 @@
+<ion-header class="bg_transparent">
+	<div class="banner ion-text-center">
+		<img src="assets/images/logo.png" width="100px">		
+	</div>
+	<diV class=ion-text-center>
+		<ion-chip *ngIf="tenantMessage || loginMessage" color="danger">
+			<ion-label>{{ tenantMessage }} {{ loginMessage }}</ion-label>
+		</ion-chip>
+	</diV>
+</ion-header>
+
+<ion-content fullscreen class="bg_img">
+	<form [formGroup]="formTenant" *ngIf="!tenantName">
+		<div class="form">
+			<h2 class=ion-text-center>{{'sign_in' | translate}}</h2>			
+			
+			<ion-list lines="none">
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'tenantName' | translate}}</ion-label>
+					<ion-input placeholder="{{'enter_tenantName' | translate}}" type="text" formControlName="tenantName" #tenant (keyup.enter)="getTenant()"></ion-input>
+				</ion-item>				
+				<div class="ion-padding ion-text-center">					
+					<ion-button size="large" class="btn block"  [disabled]="!formTenant.valid" (click)="getTenant()">{{ 'tenant'| translate}}</ion-button>
+					<!-- <ion-button fill="clear" (click)="goToPage('release')">
+						{{ release[0]?.version }}
+					</ion-button> -->
+					<h6 class=ion-text-center>{{'copy_right' | translate}}</h6>	
+				</div>		
+			</ion-list>
+		</div>
+	</form>	
+
+	<form [formGroup]="formLogin" *ngIf="tenantName">
+		<div class="form">
+			<!-- <h2 class="ion-text-center">{{'sign_in_with_email' | translate}}</h2> -->
+			<diV class="ion-text-center">
+				<ion-chip color="primary" (click)="setTenant()">
+					<ion-label>{{ tenantName }}</ion-label>
+				</ion-chip>
+			</diV>
+
+			<ion-list lines="none">
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'username' | translate}}</ion-label>
+					<ion-input placeholder="{{'enter_username' | translate}}" type="email" formControlName="username" #userName (keyup.enter)="moveField(password)"></ion-input>
+				</ion-item>
+	
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'password' | translate}}</ion-label>
+					<ion-input placeholder="{{'enter_password' | translate}}" type="password" formControlName="password" #password (keyup.enter)="login()"></ion-input>
+				</ion-item>
+
+				<!-- <div class="ion-padding ion-text-center">
+					<ion-button size="large" class="btn block"  [disabled]="!formLogin.valid" (click)="login()">{{ 'login'| translate}}</ion-button>
+					<ion-button fill="clear" (click)="goToPage('release')">
+						{{ release[0]?.version }}
+					</ion-button>
+				</div> -->
+
+				<div class="ion-padding ion-text-center" style="position: relative; top: -30px;">
+					<p class="ion-text-end" (click)="forgotPassword()" style="color: #FDB915;">Forgot password ?</p>
+					<ion-button size="large" class="btn block"  [disabled]="!formLogin.valid" (click)="login()">{{ 'login'| translate}}</ion-button>
+					<!-- <ion-button fill="clear" (click)="goToPage('release')">
+						{{ release[0]?.version }}
+					</ion-button> -->
+				</div>
+			</ion-list>
+		</div>
+	</form>	
+</ion-content>
+
+<!-- <ion-footer no-border>
+	<h6 class=ion-text-center>{{'copy_right' | translate}}</h6>	
+</ion-footer> -->

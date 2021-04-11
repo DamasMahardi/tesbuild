@@ -1,0 +1,226 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-buttons slot="end">
+			<ion-button (click)="downloadPDF()" [disabled]="!enableButtonDownload">
+			  <ion-icon slot="icon-only" name="cloud-download"></ion-icon>
+			</ion-button>
+		  </ion-buttons>
+		<ion-title>{{'payroll' | translate}} </ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color">
+	<div class="container">
+		<ion-list lines="none">
+			<ion-item lines="none">
+				<ion-label>Period</ion-label>
+				<ion-select placeholder="Select Period" (ionChange)="changePeriod($event.detail.value)">
+					<ion-select-option *ngFor="let date of dateList" [value]="date">
+						{{ date | date:'MMM yyyy' }}
+					</ion-select-option>
+				</ion-select>
+			</ion-item>
+		</ion-list>
+	</div>
+
+	<div class="container">
+		<ion-list>
+			<ion-item>
+				<ion-row>
+					<ion-col size="6" class="col">
+						<h6>Pendapatan</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">8.765.501</h6>
+					</ion-col>
+					<ion-col size="6" class="line-space">
+						<h6>Potongan</h6>
+					</ion-col>
+					<ion-col size="6" class="line-space">
+						<h6 style="float: right;">2.104.000</h6>
+					</ion-col>
+					<ion-item-divider></ion-item-divider>
+					<ion-col size="6">
+						<h6 style="color: #FDB915;">Gaji Yang Diterima</h6>
+					</ion-col>
+					<ion-col size="6">
+						<h6 style="float: right; color: #FDB915;">6.661.501,00</h6>
+					</ion-col>
+				</ion-row>
+			</ion-item>
+		</ion-list>
+
+		<ion-card>
+			<h6 style="position: relative; text-align: center;">Rincian</h6>
+		</ion-card>
+
+		<h6 class="ion-text-center" style="color: #FDB915;"><b>PENGHASILAN</b></h6>
+		<ion-list>
+			<ion-item>
+				<ion-row>
+					<ion-col size="6" class="col">
+						<h6>Gaji pokok</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">3.751.200</h6>
+					</ion-col>
+
+					<ion-col size="6" class="col">
+						<h6>Tj. Tetap : </h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;"></h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="position: relative; left: 10px;">- Lembur Tetap</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">3.240.400</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="position: relative; left: 10px;">- Tj. Cuti</h6>
+					</ion-col>
+					<ion-col size="6" class="col" style="position: relative; margin-bottom: 5px;">
+						<h6 style="float: right;">208.400</h6>
+					</ion-col>
+
+					<ion-col size="6" class="col">
+						<h6>Tj. Tidak tetap :</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;"></h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6>Tunjangan</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">432.000</h6>
+					</ion-col>
+					<ion-col size="4" class="col">
+						<h6>Lembur</h6>
+					</ion-col>
+					<ion-col size="4" class="col">
+						<h6 class="ion-text-center">18jam</h6>
+					</ion-col>
+					<ion-col size="4" class="col" style="position: relative; margin-bottom: 5px;">
+						<h6 style="float: right;">444.221</h6>
+					</ion-col>
+
+					<ion-col size="12" class="col">
+						<h6>Benefit Perusahaan :</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6>-JKK & JKM (0,54%)</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">38.880</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6>-JHT (3,7%)</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">266.400</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6>-Jaminan Pensiun (2%)</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">144.000</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6>-BPJS Kesehatan (4%)</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">240.000</h6>
+					</ion-col>
+					<ion-col size="6">
+						<h6><b>TOTAL PENGHASILAN</b></h6>
+					</ion-col>
+					<ion-col size="6">
+						<h6 style="float: right;"><b>8.765.501</b></h6>
+					</ion-col>
+				</ion-row>
+			</ion-item>
+		</ion-list>
+
+		<h6 class="ion-text-center" style="color: #FDB915;"><b>POTONGAN</b></h6>
+		<ion-list>
+			<ion-item>
+				<ion-row>
+					<ion-col size="6" class="col">
+						<h6>JHT (2%)</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">144.000</h6>
+					</ion-col>
+
+					<ion-col size="6" class="col">
+						<h6>Jaminan Pensiun (1%)</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">72.000</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6>BPJS Kesehatan (1%)</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">138.720</h6>
+					</ion-col>
+
+					<ion-col size="6" class="col">
+						<h6>PPh 21</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">138.720</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6>Pinjaman</h6>
+					</ion-col>
+					<ion-col size="6" class="col" style="position: relative; margin-bottom: 5px;">
+						<h6 style="float: right;">1.000.000</h6>
+					</ion-col>
+
+					<ion-col size="6" class="col">
+						<h6>Telah Dibayarkan Perusahaan :</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;"></h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6>JKK & JKM (0,54%)</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">38.880</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6>-JHT (3,7%)</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">266.400</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6>-Jaminan Pensiun (2%)</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">144.000</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6>-BPJS Kesehatan (4%)</h6>
+					</ion-col>
+					<ion-col size="6" class="col">
+						<h6 style="float: right;">240.000</h6>
+					</ion-col>
+					<ion-col size="6">
+						<h6><b>TOTAL POTONGAN</b></h6>
+					</ion-col>
+					<ion-col size="6">
+						<h6 style="float: right;"><b>2.104.000</b></h6>
+					</ion-col>
+				</ion-row>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-content>

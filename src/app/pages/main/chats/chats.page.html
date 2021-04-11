@@ -1,0 +1,99 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			{{'contact' | translate}}
+			<!-- {{'chats' | translate}} -->
+			<!-- <span class="ion-float-end">
+				<img src="assets/images/ic_search.png">
+			</span> -->
+		</ion-title>
+	</ion-toolbar>
+	<ion-toolbar>
+		<ion-searchbar 
+			placeholder="Search Contact" 
+			(ionInput)="searchContact($event.target.value)"
+			clearIcon="close-sharp">
+		</ion-searchbar>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color">
+
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+
+	<ion-list lines="none">
+		<div *ngIf="loading">
+			<ion-item *ngFor="let item of [1,2,3]">
+				<div class="item_container">
+					<div class="post_details d-flex">
+						<div class="img_box center_img">
+							<ion-skeleton-text animated style="top: -5px;"></ion-skeleton-text>
+						</div>
+						<div class="text_box">
+							<h2><ion-skeleton-text animated style="width: 75%; height: 15px;"></ion-skeleton-text></h2>
+							<h3><ion-skeleton-text animated style="width: 60%; height: 7px;"></ion-skeleton-text></h3>
+						</div>
+					</div>
+					<!-- <div class="item_bottom_side d-flex">
+						<h5 class="end d-flex">
+							<span class="icon_box ion-text-end">
+								<ion-icon color="medium" style="font-size: 1.5rem;" name="chatbox-ellipses-outline"></ion-icon>
+							</span>
+							<span class="icon_box ion-text-end">
+								<ion-icon color="medium" style="font-size: 1.5rem;" name="videocam-outline"></ion-icon>
+							</span>
+							<span class="icon_box ion-text-end">
+								<ion-icon color="medium" style="font-size: 1.5rem;" name="call-outline"></ion-icon>
+							</span>
+							<span class="icon_box ion-text-end">
+								<ion-icon color="medium" style="font-size: 1.5rem;" name="mail-outline"></ion-icon>
+							</span>
+						</h5>
+					</div> -->
+				</div>
+			</ion-item>
+		</div>
+
+		<div *ngIf="!loading">
+			<ion-item *ngFor="let employee of employeeList">
+				<div class="item_container">
+					<div class="post_details d-flex">
+						<div class="img_box center_img">
+							<img [src]="employee.employee.photo || 'assets/images/user.png'" class="crop_img">
+						</div>
+						<div class="text_box">
+							<h2>{{ employee.employee.fullName }}</h2>
+							<h3>{{ employee.department?.name }}</h3>
+						</div>
+					</div>
+					<div class="item_bottom_side d-flex">
+						<h5 class="end d-flex">
+							<div class="icon_box ion-text-end" (click)="GotToConversation('chatting',employee)">
+								<ion-icon color="primary" style="font-size: 1.5rem;" name="chatbox-ellipses-outline"></ion-icon>
+							</div>
+							<span class="icon_box ion-text-end" (click)="GotToConversation('videoCall', employee)">
+								<ion-icon color="primary" style="font-size: 1.5rem;" name="videocam-outline"></ion-icon>
+							</span>
+							<span class="icon_box ion-text-end" (click)="GotToConversation('telp', employee)">
+								<ion-icon color="primary" style="font-size: 1.5rem;" name="call-outline"></ion-icon>
+							</span>
+							<span class="icon_box ion-text-end" (click)="GotToConversation('mail', employee)">
+								<ion-icon color="primary" style="font-size: 1.5rem;" name="mail-outline"></ion-icon>
+							</span>
+						</h5>
+					</div>
+				</div>
+			</ion-item>
+		</div>
+	</ion-list>
+
+	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

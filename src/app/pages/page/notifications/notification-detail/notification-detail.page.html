@@ -1,0 +1,184 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{title | translate}}
+    </ion-title>
+  </ion-toolbar>
+  <div class="banner ion-text-center" *ngIf="pageType === 'employeeProfile'">
+    <div class="profile_container">
+      <ion-row>
+        <ion-col size="3">
+          <div class="icon_box">
+          </div>
+        </ion-col>
+
+        <ion-col size="6">
+          <div class="profile_img center_img">
+            <img [src]="employeeProfile.employee.photo || 'assets/images/user.png'" class="crop_img">
+          </div>
+        </ion-col>
+
+        <ion-col size="3">
+          <div class="icon_box">
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="4">
+          <div class="icon_box" (click)="action('telp')">
+            <ion-icon color="primary" style="font-size: 1.7rem;" name="call-outline"></ion-icon>
+          </div>
+        </ion-col>
+
+        <ion-col size="4" (click)="action('videoCall')">
+          <div class="icon_box">
+            <ion-icon color="primary" style="font-size: 1.7rem;" name="videocam-outline"></ion-icon>
+          </div>
+        </ion-col>
+
+        <ion-col size="4" (click)="action('mail')">
+          <div class="icon_box">
+            <ion-icon color="primary" style="font-size: 1.7rem;" name="mail-outline"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <h2>{{employeeProfile.employee.fullName}}</h2>
+      <h3>{{employeeProfile.employee.address}}</h3><br>
+      <h3><b>{{employeeProfile.company.name}}</b></h3>
+      <h3>{{employeeProfile.department.name}}</h3>
+      <h3>{{employeeProfile.jobTitle.name}}</h3>
+      <h3>{{employeeProfile.jobPosition.name}}</h3>
+    </div>
+  </div>
+
+</ion-header>
+
+<ion-content class="bg_color">
+  <ion-list lines="none" *ngIf="pageType === 'employeeLeave'">
+    <ion-item *ngIf="!employeeLeave.employeeLeave.id">
+      <div class="item_container">
+        <div class="notification_details">
+          <h2>
+            <ion-skeleton-text animated style="width: 75%; height: 15px; border-radius: 5px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 75%; height: 15px; border-radius: 5px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 75%; height: 15px; border-radius: 5px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 75%; height: 15px; border-radius: 5px;"></ion-skeleton-text>
+          </h2>
+          <h3><ion-skeleton-text animated style="width: 75%; height: 10px; border-radius: 5px;"></ion-skeleton-text></h3>
+        </div>
+        <ion-row>
+          <ion-col size="6">
+            <h4><ion-skeleton-text animated style="width: 75%; height: 10px; border-radius: 5px;"></ion-skeleton-text></h4>
+          </ion-col>
+
+          <ion-col class="ion-text-end"
+            *ngIf="approved1Status(employeeLeave.employeeLeave.approved1Status)">
+            <h6><ion-skeleton-text animated style="width: 100%; height: 10px; border-radius: 5px;"></ion-skeleton-text></h6>
+          </ion-col>
+
+          <ion-col class="ion-text-end"
+            *ngIf="approved1Status(employeeLeave.employeeLeave.approved1Status)">
+            <h6><ion-skeleton-text animated style="width: 100%; height: 10px; border-radius: 5px;"></ion-skeleton-text></h6>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-item>
+
+    <ion-item *ngIf="employeeLeave.employeeLeave.id">
+      <div class="item_container">
+        <div class="notification_details">
+          <h2>Leave request "{{ employeeLeave.employeeLeave.description }}",
+            request by {{ employeeLeave.employee.fullName }}
+          </h2>
+          <h2 *ngFor="let detail of employeeLeave.employeeLeaveDetails">
+            <ion-icon name="add"></ion-icon> {{ detail.dateTime | date:'dd.MM.yyyy'}}
+          </h2>
+          <h3>Status : {{ status[employeeLeave.employeeLeave.leaveStatus] }}
+            | {{ status[employeeLeave.employeeLeave.approved1Status] }}
+          </h3>
+        </div>
+        <ion-row>
+          <ion-col size="6">
+            <h4>{{ employeeLeave.employeeLeave.number }}</h4>
+          </ion-col>
+
+          <ion-col class="ion-text-end" (click)="approve(employeeLeave, false)"
+            *ngIf="approved1Status(employeeLeave.employeeLeave.approved1Status)">
+            <h6>{{'reject' | translate}}</h6>
+          </ion-col>
+
+          <ion-col class="ion-text-end" (click)="approve(employeeLeave, true)"
+            *ngIf="approved1Status(employeeLeave.employeeLeave.approved1Status)">
+            <h5>{{'approve' | translate}}</h5>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-list lines="none" *ngIf="pageType === 'employeeOvertime'">
+    <ion-item *ngIf="!employeeOvertime.employeeOvertime.id">
+      <div class="item_container">
+        <div class="notification_details">
+          <h2>
+            <ion-skeleton-text animated style="width: 75%; height: 15px; border-radius: 5px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 75%; height: 15px; border-radius: 5px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 75%; height: 15px; border-radius: 5px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 75%; height: 15px; border-radius: 5px;"></ion-skeleton-text>
+          </h2>
+          <h3><ion-skeleton-text animated style="width: 75%; height: 10px; border-radius: 5px;"></ion-skeleton-text></h3>
+        </div>
+        <ion-row>
+          <ion-col size="6">
+            <h4><ion-skeleton-text animated style="width: 75%; height: 10px; border-radius: 5px;"></ion-skeleton-text></h4>
+          </ion-col>
+
+          <ion-col class="ion-text-end"
+            *ngIf="approved1Status(employeeOvertime.employeeOvertime.approved1Status)">
+            <h6><ion-skeleton-text animated style="width: 100%; height: 10px; border-radius: 5px;"></ion-skeleton-text></h6>
+          </ion-col>
+
+          <ion-col class="ion-text-end"
+            *ngIf="approved1Status(employeeOvertime.employeeOvertime.approved1Status)">
+            <h6><ion-skeleton-text animated style="width: 100%; height: 10px; border-radius: 5px;"></ion-skeleton-text></h6>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-item>
+
+    <ion-item *ngIf="employeeOvertime.employeeOvertime.id">
+      <div class="item_container">
+        <div class="notification_details">
+          <h2>Overtime request "{{ employeeOvertime.employeeOvertime.description }}",<br>
+            start at {{ employeeOvertime.employeeOvertime.dateTimeStart | date:'dd.MM.yyyy HH.mm'}}<br>
+            end at {{ employeeOvertime.employeeOvertime.dateTimeEnd | date:'dd.MM.yyyy HH.mm'}},<br>
+            request by {{ employeeOvertime.employee.fullName }}
+          </h2>
+          <h3>Status : {{ status[employeeOvertime.employeeOvertime.overtimeStatus] }}
+            | {{ status[employeeOvertime.employeeOvertime.approved1Status] }}
+          </h3>
+        </div>
+        <ion-row>
+          <ion-col size="6">
+            <h4>{{ employeeOvertime.employeeOvertime.number }}</h4>
+          </ion-col>
+
+          <ion-col class="ion-text-end" (click)="approve(employeeOvertime, false)"
+            *ngIf="approved1Status(employeeOvertime.employeeOvertime.approved1Status)">
+            <h6>{{'reject' | translate}}</h6>
+          </ion-col>
+
+          <ion-col class="ion-text-end" (click)="approve(employeeOvertime, true)"
+            *ngIf="approved1Status(employeeOvertime.employeeOvertime.approved1Status)">
+            <h5>{{'approve' | translate}}</h5>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,159 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Profile Information</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<div class="banner ion-text-center">
+		<div class="profile_container">
+			<ion-row>
+				<ion-col size="3">
+					<div class="icon_box">
+					</div>
+				</ion-col>
+
+				<ion-col size="6">
+					<div class="profile_img center_img" (click)="changeAvatar()">
+						<img [src]="photo || 'assets/images/user.png'" class="">
+					</div>
+				</ion-col>
+				
+				<ion-col size="3">
+					<div class="icon_box">
+					</div>
+				</ion-col>
+			</ion-row>
+		</div>
+	</div>
+
+	<form [formGroup]="formProfile">
+
+		<div class="form">
+			<ion-list lines="none">
+
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'username' | translate}}</ion-label>
+					<ion-input [value]="this.employee.userName" disabled></ion-input>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'first_name' | translate}}</ion-label>
+					<ion-input placeholder="{{'first_name' | translate}}" type="string" formControlName="firstName" readonly></ion-input>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'middle_name' | translate}}</ion-label>
+					<ion-input placeholder="{{'middle_name' | translate}}" type="string" formControlName="middleName" readonly></ion-input>
+				</ion-item>
+				
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'last_name' | translate}}</ion-label>
+					<ion-input placeholder="{{'last_name' | translate}}" type="string" formControlName="lastName" readonly></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="stacked">{{'birth_place' | translate}}</ion-label>
+					<ion-input placeholder="{{'birth_place' | translate}}" formControlName="birthPlace" readonly></ion-input>
+				</ion-item>
+	
+				<ion-item>
+					<ion-label position="stacked">{{'birth_date' | translate}}</ion-label>
+					<ion-datetime readonly displayFormat="DD MMM, YYYY" formControlName="birthDate" placeholder="{{'select_your_date_of_birth' | translate}}"></ion-datetime>
+					<!-- <ion-icon class="zmdi zmdi-calendar-alt ion-text-end" slot="end"></ion-icon> -->
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="stacked">{{'gender' | translate}}</ion-label>
+					<ion-input placeholder="{{'gender' | translate}}" [value]="gender[this.employee.gender]" readonly></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="stacked">{{'religion' | translate}}</ion-label>
+					<ion-input placeholder="{{'religion' | translate}}" [value]="religion[this.employee.religion]" readonly></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="stacked">{{'MaritalStatus' | translate}}</ion-label>
+					<ion-input placeholder="{{'MaritalStatus' | translate}}" [value]="maritalStatuspArr[this.employee.marital].value" readonly></ion-input>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'Email' | translate}}</ion-label>
+					<ion-input placeholder="{{'Email' | translate}}" formControlName="email" readonly></ion-input>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'Phone' | translate}}</ion-label>
+					<ion-input placeholder="{{'Phone' | translate}}" formControlName="phone" readonly></ion-input>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'IdCardNumber' | translate}}</ion-label>
+					<ion-input placeholder="{{'IdCardNumber' | translate}}" formControlName="nik" readonly></ion-input>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'FamiliCardNumber' | translate}}</ion-label>
+					<ion-input placeholder="{{'FamiliCardNumber' | translate}}" formControlName="familiCardNumber" readonly></ion-input>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'BankAccountNumber' | translate}}</ion-label>
+					<ion-input placeholder="{{'BankAccountNumber' | translate}}" formControlName="savingBookNumber" readonly></ion-input>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'account_name' | translate}}</ion-label>
+					<ion-input placeholder="{{'account_name' | translate}}" formControlName="bankAccount" readonly></ion-input>
+				</ion-item>
+				<!-- <ion-item lines="none">
+					<ion-label position="stacked">{{'gender' | translate}}</ion-label>
+					<ion-select placeholder="{{'gender' | translate}}" interface="action-sheet" formControlName="gender">
+						<ion-select-option *ngFor="let gender of ['Undefined', 'Male', 'Female']; let i = index" [value]="i"> {{ gender }}</ion-select-option>
+					</ion-select>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'religion' | translate}}</ion-label>
+					<ion-select placeholder="{{'religion' | translate}}" interface="action-sheet" formControlName="religion">
+						<ion-select-option *ngFor="let religion of ['Undefined', 'Moslem', 'Cristian']; let i = index" [value]="i"> {{ religion }}</ion-select-option>
+					</ion-select>
+				</ion-item> -->
+	
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'address' | translate}}</ion-label>
+					<ion-textarea rows="4" placeholder="Street" type="text" [value]="fullAddress" readonly></ion-textarea>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'DomicileAddress' | translate}}</ion-label>
+					<ion-textarea rows="4" placeholder="{{'DomicileAddress' | translate}}" type="text" formControlName="domicileAddress" readonly></ion-textarea>
+				</ion-item>
+
+				<div class="ion-padding">
+					<div style="padding-bottom: 10px;">
+						<ion-button
+							size="large" 
+							class="btn block change-password"
+							(click)="changePassword()">
+							{{'change_password' | translate}}
+						</ion-button>
+					</div>
+					<!-- <ion-button 
+						[disabled]="formProfile.invalid || formProfile.pristine"
+						size="large" 
+						class="btn block" 
+						(click)="updateProfile()">
+						{{'save' | translate}}
+					</ion-button> -->
+				</div>
+			</ion-list>
+		</div>
+	</form>
+
+</ion-content>

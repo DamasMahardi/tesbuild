@@ -1,0 +1,93 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-buttons slot="primary">
+			<ion-button (click)="switchView()">
+			  <ion-icon slot="icon-only" name="{{ isRequest ? 'reader' : 'person' }}"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title>{{'overtime' | translate}} </ion-title>
+	</ion-toolbar>	
+</ion-header>
+
+<ion-content class="bg_color">
+	<ion-list lines="none" *ngIf="isRequest">
+
+		<ion-item *ngIf="employee.isOvertime === false" style="border: 1px solid #FDB915;">
+			<div class="item_container">
+				<div class="notification_details">
+					<h2 class="ion-text-center">Info !</h2>
+				</div>
+				<div class="notification_warning">
+					<h2>{{'overtime_warning' | translate}}</h2>
+				</div>
+			</div>
+		</ion-item>
+
+		<ion-item *ngFor="let item of requestList">
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>My Overtime request "{{ item.employeeOvertime.description }}"
+					</h2>
+					<h2><ion-icon name="arrow-forward"></ion-icon> {{ item.employeeOvertime.dateTimeStart | date:'dd.MM.yyyy  HH.mm'}}</h2>
+					<h2><ion-icon name="arrow-back"></ion-icon> {{ item.employeeOvertime.dateTimeEnd | date:'dd.MM.yyyy  HH.mm'}}</h2>
+				</div>
+				<ion-row>
+					<ion-col size="6">
+						<h4>{{ item.employeeOvertime.number }}</h4>
+					</ion-col>
+
+					<ion-col class="ion-text-end" (click)="approve(item, false, 'cancel')"
+					*ngIf="cancelStatus(item.employeeOvertime)">
+						<h6>{{'Cancel' | translate}}</h6>
+					</ion-col>
+
+					<ion-col class="ion-text-end" 
+					*ngIf="cancelStatus(item.employeeOvertime) == false">
+						<h5>Status : {{ overtimeStatus[item.employeeOvertime.overtimeStatus] }}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+	</ion-list>
+	<ion-list lines="none" *ngIf="!isRequest">
+		<ion-item *ngFor="let item of approveList">
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Leave request "{{ item.employeeOvertime.description }}",
+						request by {{ item.employee.fullName }} 
+					</h2>
+					<h2><ion-icon name="arrow-forward"></ion-icon> {{ item.employeeOvertime.dateTimeStart | date:'dd.MM.yyyy  HH.mm'}}</h2>
+					<h2><ion-icon name="arrow-back"></ion-icon> {{ item.employeeOvertime.dateTimeEnd | date:'dd.MM.yyyy  HH.mm'}}</h2>
+					<h3>Status : {{ overtimeStatus[item.employeeOvertime.overtimeStatus] }} | {{ overtimeStatus[item.employeeOvertime.overtimeHrdStatus] }}
+					</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6">
+						<h4>{{ item.employeeOvertime.number }}</h4>
+					</ion-col>
+
+					<ion-col class="ion-text-end" (click)="approve(item, false)"
+					*ngIf="approvedStatus(item.employeeOvertime)">
+						<h6>{{'reject' | translate}}</h6>
+					</ion-col>
+
+					<ion-col class="ion-text-end" (click)="approve(item, true)"
+					*ngIf="approvedStatus(item.employeeOvertime)">
+						<h5>{{'approve' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+	</ion-list>
+
+	<ion-fab *ngIf="isRequest && employee.isOvertime === true" 
+		vertical="bottom" horizontal="end" slot="fixed" 
+		(click)="newRequest()">
+		<ion-fab-button>
+			<ion-icon name="add"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</ion-content>

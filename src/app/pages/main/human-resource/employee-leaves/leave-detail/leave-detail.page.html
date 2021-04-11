@@ -1,0 +1,74 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{'new_request' | translate}}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="container" *ngIf="pageType === 'new'">
+		<!-- <h2>Your anual leave 5 days used, and 7 days left.</h2> -->
+		<form [formGroup]="form">
+			<div class="form">
+				<ion-list lines="none">
+					<ion-item>
+						<ion-label position="stacked">{{'leave_number' | translate}}</ion-label>
+						<ion-input formControlName="number"></ion-input>
+					</ion-item>
+
+					<ion-item lines="none">
+						<ion-label position="stacked">{{'leave_type' | translate}}</ion-label>
+						<ion-select interface="action-sheet"
+							formControlName="leaveType">
+							<ion-select-option *ngFor="let item of leaveTypeList; let i = index" [value]="i"> {{ item }}
+							</ion-select-option>
+						</ion-select>
+					</ion-item>
+
+					<ion-item lines="none">
+						<ion-label position="stacked">{{'select_date' | translate}}</ion-label>
+						<ion-select multiple="true" (ionChange)="changeDate($event.detail.value)" interface="action-sheet">
+						  <ion-select-option *ngFor="let date of dateList" [value]="date.date" [disabled]="date.disable">
+							{{date.date | date: 'dd MMM yyyy'}}
+						  </ion-select-option>
+						</ion-select>
+					  </ion-item>
+
+					<ion-item lines="none">
+						<ion-label position="stacked">{{'description' | translate}}</ion-label>
+						<ion-textarea rows="4" placeholder="{{'description' | translate}}" type="text" formControlName="description">
+						</ion-textarea>
+					</ion-item>
+
+					<ion-row *ngIf="this.leave.fileName">
+						<ion-col></ion-col>
+						<ion-col size="9">
+							<h5>{{this.leave.fileName}}</h5>
+						</ion-col>
+						<ion-col size="2" (click)="removeFile()">
+							<h5><ion-icon name="trash" style="font-size: 1.5rem;" color="primary"></ion-icon></h5>
+						</ion-col>
+					</ion-row>
+					
+					<label>
+						<div style="position: relative; width: 100%;">
+						<input *ngIf="!this.leave.fileName" type="file" accept="application/*" (change)="addAttachment($event.target.files)" hidden>
+						<div [ngClass]="leave.fileName ? 'attachment disable' : 'attachment enable'">
+							<h4 class="text">
+								Add Attachment
+								<ion-icon name="attach"></ion-icon>
+							</h4>
+						</div>
+						</div>
+					</label>
+				</ion-list>
+			</div>
+		</form>
+	</div>
+</ion-content>
+
+<ion-footer no-border *ngIf="pageType === 'new'">
+	<ion-button size="large" class="btn" [disabled]="!form.valid" (click)="create()">Create Leave</ion-button>
+</ion-footer>

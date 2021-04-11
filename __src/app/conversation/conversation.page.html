@@ -1,0 +1,58 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title (click)="user_profile()">
+			<div class="d-flex profile_box">
+				<div class="img_box center_img">
+					<img src="assets/images/4.png" class="crop_img">
+				</div>
+				<h2>Andrew Williamson</h2>
+			</div>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color">
+	<div class="chat_container d-flex">
+		<div class="chat_box d-flex send">
+			<div class="chat">
+				<h2>Hey Andrew,<br>How are you?</h2>
+				<p>11:48 am</p>
+			</div>
+		</div>
+		<div class="chat_box d-flex received">
+			<div class="chat">
+				<h2>Hey Samantha.<br> I am good here.</h2>
+				<p>11:49 am</p>
+			</div>
+		</div>
+		<div class="chat_box d-flex send">
+			<div class="chat">
+				<h2>So are you comming to <br> get together? </h2>
+				<p>11:50 am</p>
+			</div>
+		</div>
+
+		<div class="chat_box d-flex received">
+			<div class="chat">
+				<h2>Obviously yes. <br> I am comming</h2>
+				<p>11:55 am</p>
+			</div>
+		</div>
+	</div>
+</ion-content>
+
+<ion-footer no-border>
+	<div class="form">
+		<ion-list lines="none d-flex">
+			<ion-item lines="none">
+				<ion-input type="text" placeholder="{{'write_your_message' | translate}}"></ion-input>
+			</ion-item>
+			<div class="send_btn end">
+				<img src="assets/images/ic_send.png">
+			</div>
+		</ion-list>
+	</div>
+</ion-footer>

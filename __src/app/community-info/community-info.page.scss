@@ -1,0 +1,38 @@
+ion-header {
+	.banner {
+		ion-row {
+			align-items: center !important;
+
+			ion-col {
+
+				.banner_img {
+					position: relative;
+					width: 170px;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}
+
+ion-content {
+	border-radius: 10px 10px 0 0;
+	overflow: hidden;
+}
+
+.container {
+	padding: 11px 20px;
+
+	h2 {
+		margin: 0;
+		font-size: 1.35rem;
+		color: var(--text-black);
+		padding: 13px 0;
+	}
+
+	p {
+		margin: 0;
+		font-size: .95rem;
+		margin-bottom: 22px;
+	}
+}

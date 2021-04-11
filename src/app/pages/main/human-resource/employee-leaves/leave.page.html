@@ -1,0 +1,89 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-buttons slot="primary">
+			<ion-button (click)="switchView()">
+			  <ion-icon slot="icon-only" name="{{ isRequest ? 'reader' : 'person' }}"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title>{{'leave' | translate}} </ion-title>
+	  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color">
+	<ion-list lines="none" *ngIf="isRequest">
+		<ion-item *ngFor="let item of requestList">
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>My Leave request "{{ item.employeeLeave.description }}"
+					</h2>
+					<h2>Leave Type "{{leaveTypeList[item.employeeLeave.leaveType]}}"</h2>
+					<h2 [ngClass]="{'line-through' : detail.leaveDetailStatus === 2 }" 
+						*ngFor="let detail of item.employeeLeaveDetails">
+						<ion-icon name="add"></ion-icon>{{ detail.dateTime | date:'dd.MM.yyyy'}}
+					</h2>
+				</div>
+				<div class="notification_details" *ngIf="item.employeeLeave.comment">
+					<p>Comment from HR "{{ item.employeeLeave.comment }}"</p>
+				</div>
+				<ion-row>
+					<ion-col size="6">
+						<h4>{{ item.employeeLeave.number }}</h4>
+					</ion-col>
+
+					<ion-col class="ion-text-end" (click)="approve(item, false, 'cancel')"
+					*ngIf="cancelStatus(item.employeeLeave)">
+						<h6>{{'Cancel' | translate}}</h6>
+					</ion-col>
+
+					<ion-col class="ion-text-end" 
+					*ngIf="cancelStatus(item.employeeLeave) == false">
+						<h5>Status : {{approvalStatus[item.employeeLeave.leaveHrdStatus]}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>		
+	</ion-list>
+	<ion-list lines="none" *ngIf="!isRequest">
+		<ion-item *ngFor="let item of approveList">
+			<div class="item_container">
+				<div class="notification_details">
+					<h2>Leave request "{{ item.employeeLeave.description }}",
+						request by {{ item.employee.fullName }} 
+					</h2>
+					<h2 *ngFor="let detail of item.employeeLeaveDetails"><ion-icon name="add">						
+					</ion-icon> {{ detail.dateTime | date:'dd.MM.yyyy'}}</h2>
+					<h3>Status : {{ approvalStatus[item.employeeLeave.leaveStatus] }} 
+						| {{ approvalStatus[item.employeeLeave.leaveHrdStatus] }}
+					</h3>
+				</div>
+				<ion-row>
+					<ion-col size="6">
+						<h4>{{ item.employeeLeave.creationTime | date:'dd.MM.yyyy'}} | {{ item.employeeLeave.number }}</h4>
+					</ion-col>
+
+					<ion-col class="ion-text-end" (click)="approve(item, false)"
+					*ngIf="approvedStatus(item.employeeLeave)">
+						<h6>{{'reject' | translate}}</h6>
+					</ion-col>
+
+					<ion-col class="ion-text-end" (click)="approve(item, true)"
+					*ngIf="approvedStatus(item.employeeLeave)">
+						<h5>{{'approve' | translate}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+	</ion-list>
+
+	<ion-fab *ngIf="isRequest" 
+		vertical="bottom" horizontal="end" slot="fixed" 
+		(click)="newRequest()">
+		<ion-fab-button>
+			<ion-icon name="add"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+
+</ion-content>

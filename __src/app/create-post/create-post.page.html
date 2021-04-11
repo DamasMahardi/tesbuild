@@ -1,0 +1,36 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{'create_post' | translate}}</ion-title>
+	</ion-toolbar>
+
+	<div class="form">
+		<ion-list lines="none">
+			<ion-item lines="none">
+				<ion-input placeholder="{{'write_something_to_post' | translate}}" type="text"></ion-input>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-header>
+
+<ion-content>
+
+</ion-content>
+
+
+<ion-footer no-border>
+	<div class="post_option d-flex">
+		<div class="icon_box">
+			<img src="assets/images/photo.png">
+		</div>
+		<div class="icon_box">
+			<img src="assets/images/camera.png">
+		</div>
+		<div class="icon_box">
+			<img src="assets/images/video.png">
+		</div>
+	</div>
+	<ion-button size="large" class="btn">{{'publish_post' | translate}}</ion-button>
+</ion-footer>

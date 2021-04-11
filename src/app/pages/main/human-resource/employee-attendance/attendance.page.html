@@ -1,0 +1,286 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-buttons slot="primary" *ngIf="type === 'attendance-request'">
+			<ion-button (click)="switchView()">
+			  <ion-icon slot="icon-only" name="{{ isRequest ? 'reader' : 'person' }}"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title>{{'attendance' | translate}}</ion-title>
+	</ion-toolbar>
+	
+	<ion-segment color="primary" [(ngModel)]="type" scrollable>
+		<ion-segment-button value="attendance">
+		  	<ion-label>{{'attendance' | translate}}</ion-label>
+		</ion-segment-button>
+		<ion-segment-button value="workshift">
+		  	<ion-label>{{'workshift' | translate}}</ion-label>
+		</ion-segment-button>
+		<ion-segment-button value="monthly-workshift">
+			<ion-label>{{'monthly-workshift' | translate}}</ion-label>
+		</ion-segment-button>
+	</ion-segment>
+</ion-header>
+
+<ion-content class="bg_color">
+	<div [ngSwitch]="type">
+		<ion-list lines="none" *ngSwitchCase="'attendance'">
+			<ion-item *ngIf="todayWorkshift">
+				<div class="item_container " [ngClass]="{ 'isNonActive': !todayWorkshift?.isActive }">
+					<div class="notification_details">
+						<h2 *ngIf="todayWorkshift?.isActive" [ngClass]="{ 'isLate': !todayWorkshift?.isActive }">
+							{{ dayNameArr[todayWorkshift?.dayName]?.value.toLowerCase() | translate}} 
+							{{'today_workshift' | translate}}
+						</h2>
+						<h2 *ngIf="!todayWorkshift?.isActive" [ngClass]="{ 'isLate': !todayWorkshift?.isActive }">
+							{{ dayNameArr[todayWorkshift?.dayName]?.value.toLowerCase() | translate}} 
+							{{'day_off'| translate}}
+						</h2>
+					</div>	
+					<ion-row>
+						<ion-col size="3">
+							<h6>{{'time_in' | translate}}</h6>
+						</ion-col>
+						<ion-col size="3">
+							<h6>{{'break_start' | translate}}</h6>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h6>{{'break_end' | translate}}</h6>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h6>{{'time_out' | translate}}</h6>
+						</ion-col>
+					</ion-row>				
+					<ion-row>
+						<ion-col size="3">
+							<h4>{{ todayWorkshift?.timeIn | date:'HH:mm' }}</h4>
+						</ion-col>
+						<ion-col size="3">
+							<h5>{{ todayWorkshift?.breakTimeStart | date:'HH:mm' }}</h5>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h5>{{ todayWorkshift?.breakTimeEnd | date:'HH:mm' }}</h5>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h4>{{ todayWorkshift?.timeOut | date:'HH:mm' }}</h4>
+						</ion-col>
+					</ion-row>
+				</div>
+			</ion-item>
+			<ion-item *ngIf="isScheduleOff">
+				<div class="item_container " [ngClass]="{ 'isNonActive': isScheduleOff }">
+					<div class="notification_details">
+						<h2 [ngClass]="{ 'isLate': isScheduleOff }">
+							{{ dayNameArr[today.getDay()]?.value.toLowerCase() | translate}} 
+							{{'day_off'| translate}}
+						</h2>
+					</div>	
+					<ion-row>
+						<ion-col size="3">
+							<h6>{{'time_in' | translate}}</h6>
+						</ion-col>
+						<ion-col size="3">
+							<h6>{{'break_start' | translate}}</h6>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h6>{{'break_end' | translate}}</h6>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h6>{{'time_out' | translate}}</h6>
+						</ion-col>
+					</ion-row>				
+					<ion-row>
+						<ion-col size="3">
+							<h4>00:00</h4>
+						</ion-col>
+						<ion-col size="3">
+							<h5>00:00</h5>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h5>00:00</h5>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h4>00:00</h4>
+						</ion-col>
+					</ion-row>
+				</div>
+			</ion-item>
+			<ion-item *ngFor="let item of attendanceList">
+				<div class="item_container isLate">
+					<div class="notification_details">
+						<h2 [ngClass]="{ 'isLate': item.employeeAttendance.isLate }">
+							<ion-icon name="arrow-forward"></ion-icon> {{ item.employeeAttendance.dateTimeIn | date:'dd.MM.yyyy  HH.mm'}}</h2>
+						<h3> at "{{ item.employeeAttendance.locationIn }}"</h3>					
+					</div>
+					<div class="notification_details ion-margin-top" 
+						*ngIf="item.employeeAttendance.dateTimeOut !== null">
+						<h2 [ngClass]="{ 'isHomeEarly':item.employeeAttendance.isHomeEarly }">
+							<ion-icon name="arrow-back"></ion-icon> {{ item.employeeAttendance.dateTimeOut | date:'dd.MM.yyyy  HH.mm'}}</h2>
+						<h3> at "{{ item.employeeAttendance.locationOut }}"</h3>					
+					</div>
+					<ion-row>
+						<ion-col size="6">
+							<h4>{{ item.employeeAttendance.date | date:'dd.MM.yyyy' }}</h4>
+						</ion-col>
+	
+						<!-- <ion-col class="ion-text-end">
+							<h6>{{ item.employeeAttendance.dateTimeIn | date:'HH:mm' }}</h6>
+						</ion-col> -->
+	
+						<!-- <ion-col class="ion-text-end">
+							<h5 (click)="clockOut(item.employeeAttendance)"
+								*ngIf="isToday(item.employeeAttendance) && item.employeeAttendance.dateTimeOut === null">
+								{{'clock_out' | translate}}
+							</h5>
+						</ion-col> -->
+	
+						<ion-col class="ion-text-end">
+							<h5 (click)="clockOut(item.employeeAttendance)"
+								*ngIf="checkAttendanceLatestById(item.employeeAttendance) && isClockOut === true">
+								{{'clock_out' | translate}}
+							</h5>
+						</ion-col>
+					</ion-row>
+				</div>
+			</ion-item>
+
+			<!-- <ion-fab *ngIf="isClockIn === true && todayWorkshift?.isActive && isRequest" 
+				vertical="top" horizontal="end" slot="fixed" (click)="clockIn()">
+				<ion-fab-button>
+					<ion-icon name="alarm"></ion-icon>
+				</ion-fab-button>
+			</ion-fab> -->
+			<ion-fab *ngIf="isClockIn" 
+				vertical="top" horizontal="end" slot="fixed" (click)="clockIn()">
+				<ion-fab-button>
+					<ion-icon name="alarm"></ion-icon>
+				</ion-fab-button>
+			</ion-fab>
+		</ion-list>
+	
+		<ion-list lines="none" *ngSwitchCase="'workshift'">
+			<div *ngIf="workshift.employeeWorkshift.workshiftId === null">
+				<ion-item>
+					<div class="item_container " [ngClass]="{ 'isNonActive': workshift.employeeWorkshift.workshiftId === null }">
+						<div class="notification_details">
+							<h2 class="isLate">
+								{{ dayNameArr[today.getDay()].value.toLowerCase() | translate }}
+								{{'day_off' | translate}}
+							</h2>
+						</div>	
+						<ion-row>
+							<ion-col size="3">
+								<h6>{{'time_in' | translate}}</h6>
+							</ion-col>
+							<ion-col size="3">
+								<h6>{{'break_start' | translate}}</h6>
+							</ion-col>
+							<ion-col class="ion-text-end">
+								<h6>{{'break_end' | translate}}</h6>
+							</ion-col>
+							<ion-col class="ion-text-end">
+								<h6>{{'time_out' | translate}}</h6>
+							</ion-col>
+						</ion-row>			
+						<ion-row>
+							<ion-col size="3">
+								<h4>00:00</h4>
+							</ion-col>
+							<ion-col size="3">
+								<h5>00:00</h5>
+							</ion-col>
+							<ion-col class="ion-text-end">
+								<h5>00:00</h5>
+							</ion-col>
+							<ion-col class="ion-text-end">
+								<h4>00:00</h4>
+							</ion-col>
+						</ion-row>
+					</div>
+				</ion-item>
+			</div>
+			
+			<div *ngIf="workshift.employeeWorkshift.workshiftId !== null">
+				<ion-item *ngFor="let item of short(workshift.workshiftDetail)">
+					<div class="item_container " [ngClass]="{ 'isNonActive': !item.isActive }">
+						<div class="notification_details">
+							<h2 *ngIf="item?.isActive" [ngClass]="{ 'isLate': !item.isActive }">
+								{{ dayNameArr[item.dayName].value.toLowerCase() | translate }}						
+							</h2>
+							<h2 *ngIf="!item?.isActive" [ngClass]="{ 'isLate': !item.isActive }">
+								{{ dayNameArr[item.dayName].value.toLowerCase() | translate }}
+								{{'day_off' | translate}}
+							</h2>
+						</div>	
+						<ion-row>
+							<ion-col size="3">
+								<h6>{{'time_in' | translate}}</h6>
+							</ion-col>
+							<ion-col size="3">
+								<h6>{{'break_start' | translate}}</h6>
+							</ion-col>
+							<ion-col class="ion-text-end">
+								<h6>{{'break_end' | translate}}</h6>
+							</ion-col>
+							<ion-col class="ion-text-end">
+								<h6>{{'time_out' | translate}}</h6>
+							</ion-col>
+						</ion-row>			
+						<ion-row>
+							<ion-col size="3">
+								<h4>{{ item.timeIn | date:'HH:mm' }}</h4>
+							</ion-col>
+							<ion-col size="3">
+								<h5>{{ item.breakTimeStart | date:'HH:mm' }}</h5>
+							</ion-col>
+							<ion-col class="ion-text-end">
+								<h5>{{ item.breakTimeEnd | date:'HH:mm' }}</h5>
+							</ion-col>
+							<ion-col class="ion-text-end">
+								<h4>{{ item.timeOut | date:'HH:mm' }}</h4>
+							</ion-col>
+						</ion-row>
+					</div>
+				</ion-item>
+			</div>
+		</ion-list>
+
+		<ion-list lines="none" *ngSwitchCase="'monthly-workshift'">
+			<ion-item *ngFor="let item of employeeWorkshift">
+				<div class="item_container">
+					<ion-row>
+						<ion-col size="3">
+							<h6>{{'Code' | translate}}</h6>
+						</ion-col>
+						<ion-col size="3">
+							<h6>{{'Name' | translate}}</h6>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h6>{{'Total Hour' | translate}}</h6>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h6>{{'Efective' | translate}}</h6>
+						</ion-col>
+					</ion-row>			
+					<ion-row>
+						<ion-col size="3">
+							<h4>{{ item.workshift.code }}</h4>
+						</ion-col>
+						<ion-col size="3">
+							<h5>{{ item.workshift.name }}</h5>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h5>{{ item.workshift.totalWorkingHour }}</h5>
+						</ion-col>
+						<ion-col class="ion-text-end">
+							<h4>{{ item.employeeWorkshift.effectiveDate | date }}</h4>
+						</ion-col>
+					</ion-row>
+				</div>
+			</ion-item>
+		</ion-list>
+	</div>
+
+</ion-content>

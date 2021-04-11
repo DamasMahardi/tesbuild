@@ -1,0 +1,141 @@
+ion-header {
+	box-shadow: 0 -8px 10px 10px rgba(0, 0, 0, 0.1);
+
+	ion-toolbar ion-title {
+		span {
+			padding: 0 6px;
+
+			img {
+				width: 23px;
+				position: relative;
+				top: 4px;
+			}
+		}
+	}
+}
+
+ion-list {
+	background: var(--transparent) !important;
+	padding-top: 8px;
+
+	ion-item {
+		width: calc(100% - 0px);
+		margin: 0 auto;
+		margin-bottom: 8px;
+		--background: var(--transparent) !important;
+		--padding-start: 0;
+		--inner-padding-end: 0px;
+		--inner-min-height: unset !important;
+		position: relative; 
+		border-radius: 10px; 
+		
+
+		.item_container {
+		padding: 14px 0px 9px 26px;
+			position: relative;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+				width: calc(100% - 20px);
+				height: 100%;
+				border-radius: 10px;
+				background: var(--white) !important;
+				box-shadow: 0px 17px 13px -10px rgba(0, 0, 0, 0.1);
+
+
+			}
+
+
+			.text_box {
+				min-width: 50%;
+				max-width: 50%;
+				position: relative;
+				z-index: 99;
+
+				h2 {
+					margin: 0;
+					font-size: 1rem;
+					color: var(--text-black);
+					margin-bottom: 5px;
+
+					span {
+						min-width: 40px;
+					}
+				}
+
+				h3 {
+					margin: 0;
+					color: var(--text-light);
+					font-size: .85rem;
+					font-weight: 400;
+					margin-bottom: 4px;
+				}
+
+				p {
+					margin: 0;
+					color: var(--text-black);
+					font-size: 0.85rem;
+					font-weight: 400;
+					margin-bottom: 5px;
+
+					span {
+						min-width: 20px;
+						display: block;
+						position: relative;
+
+						&::after {
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 0;
+							bottom: 0;
+							right: 0;
+							margin: auto;
+							width: 5px;
+							height: 5px;
+							border-radius: 50%;
+							background: var(--primary);
+
+						}
+					}
+				}
+			}
+
+			.scroll_container {
+				overflow-x: scroll;
+				white-space: nowrap;
+				min-width: 50%;
+				max-width: 50%;
+
+				.item_srcoll {
+					display: inline-block;
+					margin: 0 5px;
+
+					.img_box {
+						width: 80px;
+						height: 80px;
+						border-radius: 8px;
+						background: var(--bg-color);
+					}
+
+					&:first-child {
+						margin-left: 10px;
+					}
+
+					&:last-child {
+						margin-right: 26px;
+					}
+				}
+
+
+			}
+
+		}
+	}
+}

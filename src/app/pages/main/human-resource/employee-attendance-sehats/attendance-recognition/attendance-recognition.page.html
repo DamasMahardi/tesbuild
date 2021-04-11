@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+    <ion-title>Thermoscan History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color">
+	<ion-list lines="none">
+		<ion-item *ngFor="let attendance of attendanceRecognitionList">
+			<div class="item_container">
+				<div class="notification_details">
+          <ion-row>
+            <ion-col>
+              <h6>{{attendance.employeeAttendanceRecognition.workArea}}</h6>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <img src="assets/images/celsius.png" alt="" width="24px">
+              <b style="position: relative; font-size: 1.2rem; color: #FDB915; top: -5px;">
+                <span>{{attendance.employeeAttendanceRecognition.bodyTemp}} </span>
+                <span>&#8451;</span>
+              </b>
+            </ion-col>
+            <!-- <ion-col size="2">
+              <img src="assets/images/celsius.png" alt="" width="24px">
+            </ion-col>
+            <ion-col>
+              <h2>{{attendance.employeeAttendanceRecognition.bodyTemp}}<span>&#8451;</span></h2>
+            </ion-col> -->
+            <ion-col class="ion-text-end">
+              <h2>{{attendance.employeeAttendanceRecognition.status}}</h2>
+            </ion-col>
+          </ion-row>
+				</div>	
+				<ion-row>
+					<ion-col>
+						<h6>Date</h6>
+          </ion-col>
+					<ion-col class="ion-text-end">
+						<h6>Time</h6>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<h5>{{attendance.employeeAttendanceRecognition.snapTime | date:'dd.MM.yyyy'}}</h5>
+					</ion-col>
+					<ion-col class="ion-text-end">
+						<h5>{{attendance.employeeAttendanceRecognition.snapTime | date:'HH:mm'}}</h5>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-content>
+
+

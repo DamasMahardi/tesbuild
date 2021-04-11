@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{'blogs' | translate}}
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color">
+	<ion-list lines="none">
+		<ion-item (click)="GotToRead_blog()">
+			<div class="item_container">
+				<h3 class="d-flex">What's new <span class="end">5 July, 2020</span></h3>
+				<h2>Mobile employee self-service.</h2>
+				<div class="blog_details d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/blog_1.png" class="crop_img">
+					</div>
+					<div class="text-box">
+						<p>
+							<span class="text">Berikan akses lebih mudah untuk layanan HR langsung ke smartphone karyawan. 
+								Klaim, pengajuan izin dan lembur, akses ke benefit karyawan, slip gaji, hingga reimbursement/cash advance. 
+								Di mana saja kapan saja, tanpa batas, berikan pengalaman terbaik WFH pada karyawan Anda.
+							</span>
+							<strong class="ion-text-end">{{'read_more' | translate}}</strong>
+						</p>
+					</div>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+
+</ion-content>

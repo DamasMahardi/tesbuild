@@ -1,0 +1,73 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{'new_request' | translate}}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="container" *ngIf="pageType === 'new'">
+		<form [formGroup]="form">
+			<div class="form">
+				<ion-list lines="none">
+					<ion-item>
+						<ion-label position="stacked">{{'overtime_number' | translate}}</ion-label>
+						<ion-input formControlName="number"></ion-input>
+					</ion-item>
+
+					<ion-item>
+						<ion-label position="stacked">{{'date_start' | translate}}</ion-label>
+						<ion-datetime displayFormat="DD MMM, YYYY" [min]="minDate" [max]="maxDate"
+							(ionChange)="changeDateStart($event.target.value)" placeholder="{{'select_date_start' | translate}}"
+							formControlName="dateTimeStart"></ion-datetime>
+						<ion-icon class="zmdi zmdi-calendar-alt ion-text-end" slot="end"></ion-icon>
+					</ion-item>
+					
+					<ion-item>
+						<ion-label position="stacked">{{'time_start' | translate}}</ion-label>
+						<ion-datetime displayFormat="HH:mm" [min]="timeStartMin" [max]="timeStartMax"
+							(ionChange)="changeTimeStart()" 
+							placeholder="{{'select_time_start' | translate}}"
+							formControlName="timeStart"
+							[disabled]="disabledTimeStart"></ion-datetime>
+						<ion-icon class="zmdi zmdi-calendar-alt ion-text-end" slot="end"></ion-icon>
+					</ion-item>
+
+					<ion-item>
+						<ion-label position="stacked">{{'date_end' | translate}}</ion-label>
+						<ion-datetime displayFormat="DD MMM, YYYY" 
+							[min]="minDateEnd" 
+							[max]="maxDateEnd"
+							placeholder="{{'select_date_end' | translate}}" 
+							(ionChange)="changeDateEnd($event.target.value)" 
+							formControlName="dateTimeEnd"
+							[disabled]="disabledDateEnd">
+						</ion-datetime>
+						<ion-icon class="zmdi zmdi-calendar-alt ion-text-end" slot="end"></ion-icon>
+					</ion-item>
+			
+					<ion-item>
+						<ion-label position="stacked">{{'time_end' | translate}}</ion-label>
+						<ion-datetime displayFormat="HH:mm" [min]="timeEndMin" [max]="timeEndMax"
+							placeholder="{{'select_time_end' | translate}}"
+							formControlName="timeEnd"
+							[disabled]="disabledTimeEnd"></ion-datetime>
+						<ion-icon class="zmdi zmdi-calendar-alt ion-text-end" slot="end"></ion-icon>
+					</ion-item>
+
+					<ion-item lines="none">
+						<ion-label position="stacked">{{'description' | translate}}</ion-label>
+						<ion-textarea rows="4" placeholder="{{'description' | translate}}" type="text" formControlName="description">
+						</ion-textarea>
+					</ion-item>
+				</ion-list>
+			</div>
+		</form>
+	</div>
+</ion-content>
+<ion-footer no-border *ngIf="pageType === 'new'">
+	<ion-button size="large" class="btn" [disabled]="!form.valid" (click)="create()">Create Overtime
+	</ion-button>
+</ion-footer>

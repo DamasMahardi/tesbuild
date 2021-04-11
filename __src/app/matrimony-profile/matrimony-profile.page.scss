@@ -1,0 +1,63 @@
+ .scroll_container {
+ 	width: 100%;
+ 	overflow-x: scroll;
+ 	white-space: nowrap;
+ 	margin-top: 12px;
+ 	margin-bottom: 24px;
+
+ 	.item_srcoll {
+ 		display: inline-block;
+ 		margin: 0 5px;
+
+ 		.img_box {
+ 			width: 104px;
+ 			height: 104px;
+ 			border-radius: 10px;
+ 			background: var(--bg-color);
+
+ 			img {
+ 				&.icon_img {
+ 					width: 40px;
+ 					height: auto;
+ 				}
+ 			}
+
+ 			ion-icon {
+ 				color: var(--primary);
+ 				font-size: 1.2rem;
+ 				position: absolute;
+ 				top: 3px;
+ 				right: 5px;
+ 				width: 16px;
+ 				height: 16px;
+ 				overflow: hidden;
+ 				border-radius: 50%;
+
+ 				&::after {
+ 					content: '';
+ 					position: absolute;
+ 					top: 0;
+ 					left: 0;
+ 					right: 0;
+ 					bottom: 0;
+ 					width: 10px;
+ 					height: 10px;
+ 					background: var(--white);
+ 					margin: auto;
+ 					z-index: -1;
+ 				}
+
+ 			}
+ 		}
+
+ 		&:first-child {
+ 			margin-left: 20px;
+ 		}
+
+ 		&:last-child {
+ 			margin-right: 20px;
+ 		}
+ 	}
+
+
+ }

@@ -1,0 +1,102 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{'matrimonial_profile' | translate}}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="scroll_container">
+		<div class="item_srcoll">
+			<div class="img_box center_img">
+				<img src="assets/images/ic_camera.png" class="crop_img icon_img">
+			</div>
+		</div>
+		<div class="item_srcoll">
+			<div class="img_box center_img">
+				<img src="assets/images/img_3.png" class="crop_img">
+				<ion-icon class="zmdi zmdi-close-circle"></ion-icon>
+			</div>
+		</div>
+		<div class="item_srcoll">
+			<div class="img_box center_img">
+				<img src="assets/images/img_2.png" class="crop_img">
+				<ion-icon class="zmdi zmdi-close-circle"></ion-icon>
+			</div>
+		</div>
+		<div class="item_srcoll">
+			<div class="img_box center_img">
+				<img src="assets/images/img_3.png" class="crop_img">
+				<ion-icon class="zmdi zmdi-close-circle"></ion-icon>
+			</div>
+		</div>
+		<div class="item_srcoll">
+			<div class="img_box center_img">
+				<img src="assets/images/img_3.png" class="crop_img">
+				<ion-icon class="zmdi zmdi-close-circle"></ion-icon>
+			</div>
+		</div>
+		<div class="item_srcoll">
+			<div class="img_box center_img">
+				<img src="assets/images/img_2.png" class="crop_img">
+				<ion-icon class="zmdi zmdi-close-circle"></ion-icon>
+			</div>
+		</div>
+		<div class="item_srcoll">
+			<div class="img_box center_img">
+				<img src="assets/images/img_3.png" class="crop_img">
+				<ion-icon class="zmdi zmdi-close-circle"></ion-icon>
+			</div>
+		</div>
+	</div>
+
+	<div class="form">
+		<ion-list lines="none">
+
+			<ion-item lines="none">
+				<ion-label position="stacked">{{'select_caste' | translate}}</ion-label>
+				<ion-select placeholder="{{'select_caste' | translate}}" interface="action-sheet">
+					<ion-select-option value="Williamson" selected> Williamson</ion-select-option>
+					<ion-select-option value="Smith"> Smith</ion-select-option>
+					<ion-select-option value="Rollins"> Rollins</ion-select-option>
+					<ion-select-option value="Payton"> Payton</ion-select-option>
+					<ion-select-option value="Wells"> Wells</ion-select-option>
+					<ion-select-option value="Allen"> Allen</ion-select-option>
+				</ion-select>
+			</ion-item>
+
+			<ion-item lines="none">
+				<ion-label position="stacked">{{'height' | translate}}</ion-label>
+				<ion-select placeholder="{{'select_height' | translate}}" interface="action-sheet">
+					<ion-select-option value="1" selected> 5'3" feet</ion-select-option>
+					<ion-select-option value="2"> 5'2" feet</ion-select-option>
+					<ion-select-option value="3"> 5'1" feet</ion-select-option>
+					<ion-select-option value="4"> 4'3" feet</ion-select-option>
+					<ion-select-option value="5"> 4'2" feet</ion-select-option>
+					<ion-select-option value="6"> 4'1" feet</ion-select-option>
+				</ion-select>
+			</ion-item>
+
+
+			<ion-item lines="none">
+				<ion-label position="stacked">{{'education' | translate}}</ion-label>
+				<ion-input placeholder="{{'enter_education' | translate}}" type="text" value="Master of Architecture"></ion-input>
+			</ion-item>
+
+			<ion-item lines="none">
+				<ion-label position="stacked">{{'hobbies' | translate}}</ion-label>
+				<ion-textarea rows="2" placeholder="{{'enter_email_your_hobbies' | translate}}" type="text" value="Reading, Designing, Travelling, Music"></ion-textarea>
+			</ion-item>
+			<ion-item lines="none">
+				<ion-label position="stacked">{{'expectation' | translate}}</ion-label>
+				<ion-textarea rows="2"  placeholder="{{'enter_expectation' | translate}}" type="text" value="Architect, Fair Looks Height around 5'8"></ion-textarea>
+			</ion-item>
+
+		</ion-list>
+	</div>
+</ion-content>
+<ion-footer no-border>
+	<ion-button size="large" class="btn" (click)="tabs()">{{'continue' | translate}}</ion-button>
+</ion-footer>

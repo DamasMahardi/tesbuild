@@ -1,0 +1,33 @@
+<ion-header class="bg_transparent">
+	<ion-toolbar>
+		<!--<ion-title>{{'tab_one' | translate}}</ion-title>-->
+	</ion-toolbar>
+
+	<div class="banner ion-text-center">
+		<img src="assets/images/logo.png">
+	</div>
+</ion-header>
+
+<ion-content fullscreen class="bg_img">
+	<div class="form">
+		<h2 class=ion-text-center>{{'sign_in_with_email' | translate}}</h2>
+		<ion-list lines="none">
+			<ion-item lines="none">
+				<ion-label position="stacked">{{'email_address' | translate}}</ion-label>
+				<ion-input placeholder="{{'enter_email_address' | translate}}" type="email"></ion-input>
+			</ion-item>
+
+			<ion-item lines="none">
+				<ion-label position="stacked">{{'password' | translate}}</ion-label>
+				<ion-input placeholder="{{'enter_password' | translate}}" type="text"></ion-input>
+			</ion-item>
+			<div class="ion-padding">
+				<ion-button size="large" class="btn block" (click)="login()">{{'login' | translate}}</ion-button>
+			</div>
+		</ion-list>
+	</div>
+</ion-content>
+
+<ion-footer no-border>
+	<h6 class=ion-text-center>PT. Idooh Bersama Indonesia | 2020</h6>	
+</ion-footer>

@@ -1,0 +1,47 @@
+ion-header {
+	.banner {
+		padding: 0px 15px  0px 15px;
+
+		ion-row {
+			align-items: center !important;
+
+			ion-col {
+				h2 {
+					margin: 0;
+					color: var(--white);
+					font-size: 1.35rem;
+					font-weight: 500;
+					font-size: 1.6rem;
+					font-weight: 600;
+				}
+
+				.banner_img {
+					position: relative;
+					max-width: 200px;
+				}
+			}
+		}
+
+	}
+}
+
+ion-content {
+	border-radius: 10px 10px 0 0;
+	overflow: hidden;
+}
+.container {
+	padding: 11px  0px;
+
+	h2 {
+		margin: 0;
+		font-size: 1.35rem;
+		color: var(--text-black);
+		padding: 13px 20px;
+		padding-bottom: 40px;
+	}
+	.form ion-item{
+		margin-bottom: 45px !important;
+	}
+
+	 
+}

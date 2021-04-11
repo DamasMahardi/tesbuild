@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="modalDismiss()">
+        <ion-icon name="arrow-back" style="color: #FDB915; font-size: 2rem;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Add Leave Dates</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <form>
+      <div class="form">
+        <ion-list lines="none">
+
+          <ion-item lines="none">
+            <ion-label position="stacked">Leave Type</ion-label>
+            <ion-select placeholder="Select Leave Type" interface="action-sheet" (ionChange)="changeLeave($event.detail.value)">
+              <ion-select-option *ngFor="let item of leaveTypeList; let i = index" [value]="i"> {{ item }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="stacked">Select Date</ion-label>
+            <ion-select multiple="true" (ionChange)="changeDate($event.detail.value)" interface="action-sheet">
+              <ion-select-option *ngFor="let date of dateList" [value]="date">
+                {{date | date: 'dd MMM yyyy'}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+
+        </ion-list>
+      </div>
+    </form>
+
+    <ion-list lines="none" class="family">
+      <ion-item-sliding *ngFor="let date of dateListSelected">
+        <ion-item>
+          <div class="item_container d-flex">
+            <div class="img_box center_img">
+              <img src="assets/images/ic_leave_out.png" class="crop_img">
+            </div>
+            <div class="text_box">
+              <div class="other_details d-flex">
+                <p class="d-flex">
+                  {{ date | date}} <span></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option class="right" expandable>
+            <ion-icon name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+	<ion-button size="large" class="btn" (click)="addDateList()">Add</ion-button>
+</ion-footer>

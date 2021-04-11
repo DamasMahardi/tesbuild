@@ -1,0 +1,418 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>{{'profile' | translate}}
+			<span class="ion-float-end" (click)="setViewType('active')">
+				<ion-icon class="zmdi zmdi-more ion-text-end"></ion-icon>
+			</span>
+		</ion-title>
+	</ion-toolbar>
+	<div class="banner ion-text-center" (click)="setViewType(null)">
+		<div class="profile_container">
+			<div class="profile_img center_img" >
+				<img src="assets/images/g9.png" class="crop_img">
+			</div>
+			<h2>Samantha Williamson</h2>
+			<h3 >Hemilton, New York</h3>
+			<p>20 Years <span></span> Student</p>
+			<p class="about">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+			</p>
+		</div>
+
+		<ion-segment [(ngModel)]="tab" lines="none">
+			<ion-segment-button value="post">
+				<ion-label>
+					{{'post' | translate}}
+				</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="family">
+				<ion-label>
+					{{'family' | translate}}
+				</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="saved">
+				<ion-label>
+					{{'saved' | translate}}
+				</ion-label>
+			</ion-segment-button>
+		</ion-segment>
+	</div>
+
+	<!-- Option container start -->
+	<div  [ngClass]="viewType == 'active' ? 'option_container active':'option_container'">
+		<div class="option" (click)="setViewType(null)">
+			<h2>{{'edit_profile' | translate}}</h2>
+		</div>
+		<div class="option" (click)="setViewType(null)">
+			<h2>{{'matrimonial' | translate}}</h2>
+		</div>
+		<div class="option" (click)="setViewType(null)">
+			<h2>{{'share_proftle' | translate}}</h2>
+		</div>
+		<div class="option" (click)="logout()">
+			<h2 >{{'logout' | translate}}</h2>
+		</div>
+	</div>
+	<!-- Option container end -->
+
+</ion-header>
+
+<ion-content class="bg_color" >
+	<div class="tab_container" [ngSwitch]="tab">
+		<ion-list lines="none" *ngSwitchCase="'post'">
+			<ion-item>
+				<div class="item_container">
+					<div class="post_details d-flex">
+						<div class="img_box center_img">
+							<img src="assets/images/g9.png" class="crop_img">
+						</div>
+						<div class="text_box">
+							<h2 class="d-flex">
+								<span>Samantha Williamson </span>
+								<span class="end icon_box ion-text-end">
+									<img src="assets/images/ic_save.png" class="">
+									<!--						 <img src="assets/images/ic_save.png" class="">-->
+								</span>
+							</h2>
+							<h3>10 mins ago</h3>
+						</div>
+					</div>
+
+					<div class="post_text">
+						<p>
+							Need a help with Room on Rent in Hemiltone area. Kindly Message or comment if anyone help me with this.
+						</p>
+					</div>
+					<div class="item_bottom_side d-flex">
+						<h4>125 Liked & 25 Commented </h4>
+						<h5 class="end d-flex">
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_share.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_comment.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_heart.png">
+							</span>
+						</h5>
+					</div>
+				</div>
+			</ion-item>
+
+			<ion-item>
+				<div class="item_container">
+					<div class="post_details d-flex">
+						<div class="img_box center_img">
+							<img src="assets/images/g9.png" class="crop_img">
+						</div>
+						<div class="text_box">
+							<h2 class="d-flex">
+								<span>Samantha Williamson </span>
+								<span class="end icon_box ion-text-end">
+									<img src="assets/images/ic_save.png" class="">
+									<!--						 <img src="assets/images/ic_save.png" class="">-->
+								</span>
+							</h2>
+							<h3>15 mins ago</h3>
+						</div>
+					</div>
+
+					<div class="post_img center_img">
+						<img src="assets/images/post_1.png" class="crop_img">
+					</div>
+					<div class="item_bottom_side d-flex">
+						<h4>125 Liked & 25 Commented </h4>
+						<h5 class="end d-flex">
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_share.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_comment.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_heart.png">
+							</span>
+						</h5>
+					</div>
+				</div>
+			</ion-item>
+			<ion-item>
+				<div class="item_container">
+					<div class="post_details d-flex">
+						<div class="img_box center_img">
+							<img src="assets/images/g9.png" class="crop_img">
+						</div>
+						<div class="text_box">
+							<h2 class="d-flex">
+								<span>Samantha Williamson </span>
+								<span class="end icon_box ion-text-end">
+									<img src="assets/images/ic_save.png" class="">
+									<!--						 <img src="assets/images/ic_save.png" class="">-->
+								</span>
+							</h2>
+							<h3>10 mins ago</h3>
+						</div>
+					</div>
+
+					<div class="post_text">
+						<p>
+							Need a help with Room on Rent in Hemiltone area. Kindly Message or comment if anyone help me with this.
+						</p>
+					</div>
+					<div class="item_bottom_side d-flex">
+						<h4>125 Liked & 25 Commented </h4>
+						<h5 class="end d-flex">
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_share.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_comment.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_heart.png">
+							</span>
+						</h5>
+					</div>
+				</div>
+			</ion-item>
+
+			<ion-item>
+				<div class="item_container">
+					<div class="post_details d-flex">
+						<div class="img_box center_img">
+							<img src="assets/images/g9.png" class="crop_img">
+						</div>
+						<div class="text_box">
+							<h2 class="d-flex">
+								<span>Samantha Williamson </span>
+								<span class="end icon_box ion-text-end">
+									<img src="assets/images/ic_save.png" class="">
+									<!--						 <img src="assets/images/ic_save.png" class="">-->
+								</span>
+							</h2>
+							<h3>15 mins ago</h3>
+						</div>
+					</div>
+
+					<div class="post_img center_img">
+						<img src="assets/images/post_1.png" class="crop_img">
+					</div>
+					<div class="item_bottom_side d-flex">
+						<h4>125 Liked & 25 Commented </h4>
+						<h5 class="end d-flex">
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_share.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_comment.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_heart.png">
+							</span>
+						</h5>
+					</div>
+				</div>
+			</ion-item>
+			<ion-item>
+				<div class="item_container">
+					<div class="post_details d-flex">
+						<div class="img_box center_img">
+							<img src="assets/images/g9.png" class="crop_img">
+						</div>
+						<div class="text_box">
+							<h2 class="d-flex">
+								<span>Samantha Williamson </span>
+								<span class="end icon_box ion-text-end">
+									<img src="assets/images/ic_save.png" class="">
+									<!--						 <img src="assets/images/ic_save.png" class="">-->
+								</span>
+							</h2>
+							<h3>10 mins ago</h3>
+						</div>
+					</div>
+
+					<div class="post_text">
+						<p>
+							Need a help with Room on Rent in Hemiltone area. Kindly Message or comment if anyone help me with this.
+						</p>
+					</div>
+					<div class="item_bottom_side d-flex">
+						<h4>125 Liked & 25 Commented </h4>
+						<h5 class="end d-flex">
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_share.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_comment.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_heart.png">
+							</span>
+						</h5>
+					</div>
+				</div>
+			</ion-item>
+
+			<ion-item>
+				<div class="item_container">
+					<div class="post_details d-flex">
+						<div class="img_box center_img">
+							<img src="assets/images/g9.png" class="crop_img">
+						</div>
+						<div class="text_box">
+							<h2 class="d-flex">
+								<span>Samantha Williamson </span>
+								<span class="end icon_box ion-text-end">
+									<img src="assets/images/ic_save.png" class="">
+									<!--						 <img src="assets/images/ic_save.png" class="">-->
+								</span>
+							</h2>
+							<h3>15 mins ago</h3>
+						</div>
+					</div>
+
+					<div class="post_img center_img">
+						<img src="assets/images/post_1.png" class="crop_img">
+					</div>
+					<div class="item_bottom_side d-flex">
+						<h4>125 Liked & 25 Commented </h4>
+						<h5 class="end d-flex">
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_share.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_comment.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_heart.png">
+							</span>
+						</h5>
+					</div>
+				</div>
+			</ion-item>
+		</ion-list>
+
+
+
+		<ion-list lines="none" class="family" *ngSwitchCase="'family'">
+			<ion-item>
+				<div class="item_container d-flex">
+					<div class="img_box center_img">
+						<img src="assets/images/6.png" class="crop_img">
+					</div>
+					<div class="text_box">
+						<h2>Adom Williamson (Father)</h2>
+						<h3>Hemilton, New York</h3>
+						<div class="other_details d-flex">
+							<p class="d-flex">
+								35 Years <span></span> Doctor
+							</p>
+							<div class="icon_container">
+								<div class="icon_box">
+									<div class="icon"><img src="assets/images/ic_call.png"></div>
+									<div class="icon"><img src="assets/images/ic_chat.png"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</ion-item>
+
+			<ion-item class="add_member" (click)="add_family_member()">
+				<div class="item_container d-flex">
+					<div class="img_box center_img">
+						<ion-icon class="ion-text-center zmdi zmdi-plus"></ion-icon>
+					</div>
+					<div class="text_box">
+						<h2>{{'add_family_member' | translate}}</h2>
+					</div>
+				</div>
+			</ion-item>
+		</ion-list>
+
+
+		<ion-list lines="none" *ngSwitchCase="'saved'">
+			<ion-item>
+				<div class="item_container">
+					<div class="post_details d-flex" (click)="user_profile()">
+						<div class="img_box center_img">
+							<img src="assets/images/reichel_1.png" class="crop_img">
+						</div>
+						<div class="text_box">
+							<h2 class="d-flex">
+								<span>Johana Williamson </span>
+								<span class="end icon_box ion-text-end">
+									<!--									<img src="assets/images/ic_save.png" class="">-->
+									<img src="assets/images/ic_saved.png" class="">
+								</span>
+							</h2>
+							<h3>2 mins ago</h3>
+						</div>
+					</div>
+					<div class="post_text">
+						<p>
+							Merry Christmans to all community friends.
+						</p>
+					</div>
+					<div class="post_img center_img">
+						<img src="assets/images/post_1.png" class="crop_img">
+					</div>
+					<div class="item_bottom_side d-flex">
+						<h4>125 Liked & 25 Commented </h4>
+						<h5 class="end d-flex">
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_share.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_comment.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_heart_active.png">
+								<!--								<img src="assets/images/ic_heart.png">-->
+							</span>
+						</h5>
+					</div>
+				</div>
+			</ion-item>
+
+			<ion-item>
+				<div class="item_container">
+					<div class="post_details d-flex" (click)="user_profile()">
+						<div class="img_box center_img">
+							<img src="assets/images/8.png" class="crop_img">
+						</div>
+						<div class="text_box">
+							<h2 class="d-flex">
+								<span>Adom Williamson</span>
+								<span class="end icon_box ion-text-end">
+									<img src="assets/images/ic_save.png" class="">
+									<!--									<img src="assets/images/ic_saved.png" class="">-->
+								</span>
+							</h2>
+							<h3>2 mins ago</h3>
+						</div>
+					</div>
+					<div class="post_img center_img">
+						<img src="assets/images/post_2.png" class="crop_img">
+					</div>
+					<div class="item_bottom_side d-flex">
+						<h4>125 Liked & 25 Commented </h4>
+						<h5 class="end d-flex">
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_share.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<img src="assets/images/ic_comment.png">
+							</span>
+							<span class="icon_box ion-text-end">
+								<!--								<img src="assets/images/ic_heart_active.png">-->
+								<img src="assets/images/ic_heart.png">
+							</span>
+						</h5>
+					</div>
+				</div>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-content>

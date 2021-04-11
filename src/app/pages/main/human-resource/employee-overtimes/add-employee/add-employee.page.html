@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="modalDismiss()">
+        <ion-icon name="arrow-back" style="color: #FDB915; font-size: 2rem;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Add Employee</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button fill="solid" 
+        shape="round" 
+        style="--color: #FDB915;" 
+        [disabled]="employeeSelected.length === 0"
+        (click)="addEmployee()">
+        ADD
+        <ion-icon slot="icon-only" style="color: #FDB915;" name="person-add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color">
+  <ion-list lines="none" class="family">
+    <ion-item *ngFor="let item of employeeList" class="item-list" (click)="selectEmployee(item)">
+      <div class="item_container d-flex" [class.selected]="item.selected">
+        <div class="img_box center_img">
+          <img [src]="item?.employee.photo || 'assets/images/user.png'" class="crop_img">
+        </div>
+        <div class="text_box">
+          <h2>{{ item?.employee.firstName }}</h2>
+          <h3>{{ item?.employee.email }}</h3>
+          <!-- <div class="other_details d-flex">
+            <p class="d-flex">
+              Example <span></span> Example
+            </p>
+          </div> -->
+        </div>
+      </div>
+    </ion-item>
+
+    <div class="ion-text-center" *ngIf="employeeList.length > 0 && !isTotalCount">
+      <ion-button shape="round" fill="outline" *ngIf="isShowButton" (click)="pagination()">
+        Muat lebih banyak
+        <ion-icon slot="end" name="arrow-down"></ion-icon>
+      </ion-button>
+
+      <ion-grid *ngIf="!isShowButton">
+        <ion-row>
+          <ion-col text-center>
+            <ion-spinner color="primary" name="lines"></ion-spinner>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+  </ion-list>
+</ion-content>

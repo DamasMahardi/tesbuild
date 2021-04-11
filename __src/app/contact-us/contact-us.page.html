@@ -1,0 +1,46 @@
+<ion-header class="bg_transparent">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title></ion-title>
+	</ion-toolbar>
+	<div class="banner">
+		<ion-row>
+			<ion-col size="6">
+				<h2> {{'contact_us' | translate}}</h2>
+			</ion-col>
+			<ion-col size="6">
+				<div class="banner_img">
+					<img src="assets/images/logo.png">
+				</div>
+			</ion-col>
+		</ion-row>
+	</div>
+</ion-header>
+
+
+<ion-content>
+	<div class="container">
+		<h2>Let us know your feedback, queries or issue regarding app or features.</h2>
+		<div class="form"> 
+			<ion-list lines="none">
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'fullname' | translate}}</ion-label>
+					<ion-input placeholder="{{'enter_your_full_name' | translate}}" type="name"></ion-input>
+				</ion-item>
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'phone_number' | translate}}</ion-label>
+					<ion-input placeholder="{{'enter_your_phone_numer' | translate}}" type="number"></ion-input>
+				</ion-item>
+				<ion-item lines="none">
+					<ion-label position="stacked">{{'your_message' | translate}}</ion-label>
+					<ion-input placeholder="{{'enter_your_message' | translate}}" type="text"></ion-input>
+				</ion-item>
+			</ion-list>
+		</div>
+	</div>
+</ion-content>
+<ion-footer no-border>
+		<ion-button size="large" class="btn" (click)="tabs()">{{'send_message' | translate}}</ion-button>
+</ion-footer>

@@ -1,0 +1,19 @@
+ion-header {
+	ion-toolbar {
+		ion-title {
+			position: absolute;
+			position: absolute !important;
+			top: 0;
+			left: 0;
+			right: 0;
+			width: calc(100% - 50px);
+			margin: 0 auto;
+			text-align: center;
+		}
+	}
+
+}
+
+.form {
+	margin-top: 45px;
+}
